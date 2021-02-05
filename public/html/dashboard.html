@@ -21,7 +21,7 @@
     <!-- Welcome Section -->
     <div class="row justify-content-center mt-5">
       <div class="col-6">
-        <h1 class="display-5">Welcome, <span id="firstName">Ryan</span>!</h1>
+        <h1 class="display-5">Welcome, <span id="firstName">User</span>!</h1>
       </div>
       <div class="col-6">
         <p class="text-center" id="quote-text">"If opportunity doesn't knock, then build a door."</p>
@@ -60,7 +60,9 @@
             <li><a class="dropdown-item" href="#">Responded</a></li>
           </ul>
         </div>
-        <button class="btn me-auto" id="new">Add New Application</button>
+        <button type="button" id="new" class="btn btn-primary me-auto" data-bs-toggle="modal" data-bs-target="#newapp-form">
+          New Application
+        </button>
       </div>
       <!-- Search -->
       <div class="col-5">
@@ -68,6 +70,45 @@
           <input class="form-control" type="search" placeholder="Search for an application" aria-label="Search">
           <button class="btn btn-outline-success" type="submit" id="btn-search">Search</button>
         </form>
+      </div>
+    </div>
+
+    <!-- Add New Application Modal -->
+    <div class="modal mt-5" tabindex="-1" id="newapp-form">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Enter application info.</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <!-- Input Fields -->
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Date</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MM/DD/YYYY">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Company</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Position</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Source</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group">
+              <span class="input-group-text">Notes</span>
+              <textarea class="form-control" aria-label="With textarea"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary modal-btn">Sign Up</button>
+          </div>
+        </div>
       </div>
     </div>
 
