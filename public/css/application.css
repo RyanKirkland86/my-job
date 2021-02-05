@@ -1,0 +1,50 @@
+/**** GLOBAL *****/
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #cbbcb1;
+}
+
+.header-section {
+  background: #556052;
+  color: #f2efea;
+  border-radius: 20px;
+}
+h1, h4, p {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.info-section, .notes-section {
+  background: #f2efea;
+  color: #556052;
+  border-radius: 20px;
+}
+
+.edit-btn {
+  font-family: 'Roboto Mono', monospace;
+  color: #cbbcb1;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+.edit-btn:hover {
+  cursor: pointer;
+  color: #556052;
+}
+.date {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+}
+.data-field {
+  font-family: 'Roboto', sans-serif;
+  color: #af6b58;
+  font-size: 1.2em;
+}
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.5em;
+}
