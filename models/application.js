@@ -36,5 +36,12 @@ module.exports = function(sequelize, DataTypes) {
         });
     };
 
+    Application.associate = function(models) {
+        Application.hasMany(models.Recruiter, {
+            onDelete: "cascade"
+        });
+    };
+
+
     return Application;
 };
