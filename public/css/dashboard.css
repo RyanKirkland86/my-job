@@ -5,11 +5,11 @@
 body {
   background-color: #f2efea;
 }
+p {
+  font-family: 'Roboto Mono', monospace;
+}
 
 /**** WELCOME SECTION *****/
-#top {
-  margin: 3% auto 2% auto;
-}
 h1 {
   font-family: 'Roboto Mono', monospace;
   font-weight: 700;
@@ -23,6 +23,7 @@ h1 {
   margin: 2% 0 0 0;
 }
 #quote-author {
+  font-family: 'Roboto', sans-serif;
   color:#556052;
   padding-left: 50%;
 }
