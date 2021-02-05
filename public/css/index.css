@@ -1,0 +1,32 @@
+/***** GLOBAL *****/
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f2efea;
+}
+
+h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  color:#556052;
+  margin: 20% auto 10% auto;
+}
+
+h5 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  color:#556052;
+  margin: 0 auto 15% auto;
+}
+
+button {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.5em;
+  background: #af6b58;
+  color: #f2efea;
+  border: none;
+  border-radius: 10px;
+  height: 3em;
+  width: 7em;
+}
