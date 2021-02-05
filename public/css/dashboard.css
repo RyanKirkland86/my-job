@@ -1,0 +1,35 @@
+/**** GLOBAL *****/
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f2efea;
+}
+
+/**** WELCOME SECTION *****/
+#top {
+  margin: 3% auto 2% auto;
+}
+h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  color:#556052;
+  padding-left: 10%;
+}
+#quote-text {
+  font-family: 'Sriracha', cursive;
+  font-size: larger;
+  color:#556052;
+  margin: 2% 0 0 0;
+}
+#quote-author {
+  color:#556052;
+  padding-left: 50%;
+}
+
+/***** STATS BAR *****/
+#stats-bar {
+  background: #cbbcb1;
+  height: 100px;
+  border-radius: 10px;
+}
