@@ -28,3 +28,8 @@ button {
   height: 3em;
   width: 7em;
 }
+
+button:hover {
+  cursor: pointer;
+  background: #556052;
+}
