@@ -46,7 +46,12 @@ h1 {
 }
 
 /***** APPLICATIONS *****/
-#dropdownMenuLink {
+#dropdownMenuButton {
+  background: #556052;
+  color: #f2efea;
+  border: none;
+}
+#new {
   background: #556052;
   color: #f2efea;
   border: none;

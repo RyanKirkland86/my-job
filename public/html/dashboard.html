@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&family=Roboto:wght@300;400&family=Sriracha&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
-  <!-- Custome Stylesheet -->
+  <!-- Custom Stylesheet -->
   <link href="../css/dashboard.css" rel="stylesheet">
   <title>My Job | Dashboard</title>
 </head>
@@ -51,15 +51,16 @@
       <!-- Filter -->
       <div class="col-7 d-flex">
         <div class="dropdown me-auto">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             Filter Results
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li><a class="dropdown-item" href="#">Starred</a></li>
-            <li><a class="dropdown-item" href="#">Got interview</a></li>
-            <li><a class="dropdown-item" href="#">Rejected</a></li>
+            <li><a class="dropdown-item" href="#">Interviewed</a></li>
+            <li><a class="dropdown-item" href="#">Responded</a></li>
           </ul>
         </div>
+        <button class="btn me-auto" id="new">Add New Application</button>
       </div>
       <!-- Search -->
       <div class="col-5">
@@ -160,6 +161,9 @@
     </div>
     
   </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 </body>
 </html>
