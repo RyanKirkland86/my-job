@@ -34,6 +34,7 @@ h1, h4, p {
 .date {
   font-family: 'Roboto', sans-serif;
   font-size: 1.5em;
+  font-weight: 700;
 }
 p {
   font-family: 'Roboto', sans-serif;
