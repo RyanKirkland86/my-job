@@ -24,13 +24,85 @@
     </div>
     <div class="row justify-content-center mt-5">
       <div class="col-2">
-        <button>Login</button>
+        <button id="login-btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login-form">
+          Login
+        </button>
       </div>
       <div class="col-2">
-        <button class="float-end">Sign Up</button>
+        <button id="signup-btn" type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#signup-form">
+          Sign Up
+        </button>
       </div>
     </div>
   </div>
 
+  <!-- Login Form -->
+  <div class="modal mt-5" tabindex="-1" id="login-form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Log into your job search dashboard</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Input Fields -->
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+            <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary modal-btn">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign Up Form -->
+  <div class="modal mt-5" tabindex="-1" id="signup-form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sign up to begin!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Input Fields -->
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+            <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary modal-btn">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
