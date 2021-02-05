@@ -1,8 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
     var Note = sequelize.define("Note", {
-        body: DataTypes.TEXT
-        }
-    );
+        body: {
+            type: DataTypes.TEXT
+        }   
+    });
 
     Note.associate = function(models) {
         Note.belongsTo(models.User, {
@@ -11,7 +12,10 @@ module.exports = function(sequelize, DataTypes) {
     };
 
     Note.associate = function(models) {
-        Note.belongsTo(models.Application, {});
+        Note.belongsTo(models.Application, {
+            onDelete: "cascade"
+        });
     };
 
+    return Note;
 };

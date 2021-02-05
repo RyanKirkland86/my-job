@@ -20,7 +20,7 @@ module.exports = function(app) {
         });
     });
 
-    app.update("api/applications/:id", function(req, res) {
+    app.put("api/applications/:id", function(req, res) {
         db.Application.update(req.body, {id: req.params.id}).then(function(result) {
             res.json(result);
         });
