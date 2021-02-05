@@ -5,7 +5,7 @@
 body {
   background-color: #f2efea;
 }
-p, a, input, button {
+p, a, input, button, span, h5 {
   font-family: 'Roboto Mono', monospace;
 }
 
@@ -46,7 +46,12 @@ h1 {
 }
 
 /***** APPLICATIONS *****/
-#dropdownMenuLink {
+#dropdownMenuButton {
+  background: #556052;
+  color: #f2efea;
+  border: none;
+}
+#new, .modal-btn {
   background: #556052;
   color: #f2efea;
   border: none;

@@ -6,20 +6,21 @@ body {
   background-color: #f2efea;
 }
 
-h1 {
+h1, h5, .modal-btn, input, #login-btn, #signup-btn, span {
   font-family: 'Roboto Mono', monospace;
+}
+
+h1 {
   font-weight: 700;
   color:#556052;
 }
 
 h5 {
-  font-family: 'Roboto Mono', monospace;
   font-weight: 700;
   color:#556052;
 }
 
-button {
-  font-family: 'Roboto Mono', monospace;
+#login-btn, #signup-btn {
   font-size: 1.5em;
   background: #af6b58;
   color: #f2efea;
@@ -29,7 +30,11 @@ button {
   width: 7em;
 }
 
-button:hover {
+#login-btn:hover, #signup-btn:hover {
   cursor: pointer;
+  background: #556052;
+}
+
+.modal-btn {
   background: #556052;
 }
