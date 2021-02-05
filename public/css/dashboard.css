@@ -5,7 +5,7 @@
 body {
   background-color: #f2efea;
 }
-p, a, input {
+p, a, input, button {
   font-family: 'Roboto Mono', monospace;
 }
 
@@ -46,9 +46,28 @@ h1 {
 }
 
 /***** APPLICATIONS *****/
-#btn-search {
-  font-family: 'Roboto Mono', monospace;
-  background: #af6b58;
+#dropdownMenuLink {
+  background: #556052;
   color: #f2efea;
   border: none;
+}
+#btn-search {
+  background: #556052;
+  color: #f2efea;
+  border: none;
+}
+.header {
+  color: #556052;
+}
+.application {
+  background: #af6b58;
+  border-radius: 10px;
+}
+.application:hover {
+  cursor: pointer;
+  background: #556052;
+}
+.app-text {
+  color: #f2efea;
+  font-size: 1.1em;
 }
