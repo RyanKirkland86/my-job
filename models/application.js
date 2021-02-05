@@ -1,5 +1,7 @@
 const user = require("./user");
 
+var statusopts = ["Applied - Awaiting Response", "Recruiter Responded", "Interview Scheduled", "Interview Completed", "Offer Made", "Rejection"];
+
 module.exports = function(sequelize, DataTypes) {
     var Application = sequelize.define("Application", {
         company: {
@@ -20,6 +22,26 @@ module.exports = function(sequelize, DataTypes) {
                 isUrl: true 
             }
         },
+        status: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            default: "Applied - Awaiting Response",
+            validate: {
+                len: [1],
+                isIn: [statusopts]
+            }
+        },
+        recruiterName: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        recruiterContact: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                isEmail: true
+            }
+        }    
     });
 
     Application.associate = function(models) {
@@ -32,12 +54,6 @@ module.exports = function(sequelize, DataTypes) {
 
     Application.associate = function(models) {
         Application.hasMany(models.Note, {
-            onDelete: "cascade"
-        });
-    };
-
-    Application.associate = function(models) {
-        Application.hasMany(models.Recruiter, {
             onDelete: "cascade"
         });
     };
