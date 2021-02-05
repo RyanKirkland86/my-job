@@ -5,7 +5,7 @@
 body {
   background-color: #f2efea;
 }
-p {
+p, a, input {
   font-family: 'Roboto Mono', monospace;
 }
 
@@ -34,6 +34,8 @@ h1 {
   height: 100px;
   border-radius: 10px;
 }
+
+/***** GRAPH & TRACKING *****/
 #graph {
   height: 250px;
   border-radius: 10px;
@@ -41,4 +43,12 @@ h1 {
 #tracking {
   height: 250px;
   border-radius: 10px;
+}
+
+/***** APPLICATIONS *****/
+#btn-search {
+  font-family: 'Roboto Mono', monospace;
+  background: #af6b58;
+  color: #f2efea;
+  border: none;
 }

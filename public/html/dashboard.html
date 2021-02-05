@@ -37,19 +37,36 @@
     </div>
 
     <!-- Graph & Tracking Section -->
-    <div class="row justify-content-center">
-      <div class="col-7 d-flex border my-4" id="graph">
+    <div class="row justify-content-center my-4">
+      <div class="col-7 d-flex border" id="graph">
         <p class="text-center align-self-center flex-grow-1">(Graph Area)</p>
       </div>
-      <div class="col-3 d-flex border my-4"  id="tracking">
+      <div class="col-3 d-flex border"  id="tracking">
         <p class="text-center align-self-center flex-grow-1">(Tracking Area)</p>
       </div>
     </div>
 
-    <!-- Applications Section -->
+    <!-- Search & Filter Section -->
     <div class="row justify-content-center">
-      <div class="col-10 d-flex border my-4" id="graph">
-        <p class="text-center align-self-center flex-grow-1">(Graph Area)</p>
+      <!-- Filter -->
+      <div class="col-6 d-flex border">
+        <div class="dropdown me-auto">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter Results
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Starred</a></li>
+            <li><a class="dropdown-item" href="#">Got interview</a></li>
+            <li><a class="dropdown-item" href="#">Rejected</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Search -->
+      <div class="col-4 border">
+        <form class="d-flex">
+          <input class="form-control" type="search" placeholder="Search for an application" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" id="btn-search">Search</button>
+        </form>
       </div>
     </div>
     
