@@ -44,7 +44,7 @@ p {
   color: #af6b58;
   font-size: 1.2em;
 }
-h3 {
+h3, h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 1.5em;
