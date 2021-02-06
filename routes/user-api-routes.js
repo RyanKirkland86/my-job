@@ -20,7 +20,20 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/users", function(req, res) {
+  // Find user corresponding to username and password -> We can use this as the route that is taken after submitting on login, can also call on this route after creating a new user.
+  app.get("/api/login/:username/:password", function (req, res) {
+
+    db.User.findOne({
+        where: {
+            userName: req.params.username,
+            password: req.params.password
+        }
+    }).then(function (result) {
+        res.json(result);
+    });
+  });
+
+  app.post("/api/newuser", function(req, res) {
     // Create a User with the data available to us in req.body
     db.User.create(req.body).then(function(result) {
       res.json(result);
