@@ -20,4 +20,8 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 
+  app.get("/dashboard/:id/:appid", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/application.html"));
+  });
+
 };
