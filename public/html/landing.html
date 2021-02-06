@@ -10,7 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
   <!-- Custom Stylesheet -->
-  <link href="public/css/index.css" rel="stylesheet">
+  <link href="../css/landing.css" rel="stylesheet">
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <!-- Custom Script -->
+  <script type="text/javascript" src="../js/landing.js"></script>
   <title>My Job</title>
 </head>
 <body>
@@ -18,18 +22,18 @@
   <div class="container-fluid">
     <div class="row justify-content-center my-5">
       <div class="col-6 my-5">
-        <img class="img-fluid mx-auto d-block" src="public/img/job-search.png" alt="Job Search Logo"/>
+        <img class="img-fluid mx-auto d-block" src="../img/my-job.png" alt="Job Search Logo"/>
         <h5 class="text-center display-6 my-5">Organize your job search.</h5>
       </div>
     </div>
     <div class="row justify-content-center mt-5">
       <div class="col-2">
-        <button id="login-btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login-form">
+        <button id="login-btn-main" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login-form">
           Login
         </button>
       </div>
       <div class="col-2">
-        <button id="signup-btn" type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#signup-form">
+        <button id="signup-btn-main" type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#signup-form">
           Sign Up
         </button>
       </div>
@@ -46,12 +50,12 @@
         </div>
         <!-- Input Fields -->
         <div class="modal-body">
+          <p>Username</p>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="login-username">
           </div>
+          <p>Password</p>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
             <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="login-password">
           </div>
         </div>
@@ -73,25 +77,29 @@
         </div>
         <!-- Input Fields -->
         <div class="modal-body">
+          <p>Username</p>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="signup-username">
           </div>
+          <p>First Name</p>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="signup-firstname">
           </div>
+          <p>Last Name</p>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="signup-lastname">
           </div>
+          <p>Email</p>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="signup-email">
           </div>
+          <p>Password</p>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
             <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="signup-password">
+          </div>
+          <p>Confirm Password</p>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="signup-passconfirm">
           </div>
         </div>
         <div class="modal-footer">
