@@ -5,6 +5,11 @@ $(document).ready(function () {
         var username = $("#login-username").val().trim();
         var password = $("#login-password").val().trim();
 
+        // Confirm input fields not empty.
+        if (!username || !password) {
+            return;
+        }
+
         getUser(username, password);
     })
 
@@ -24,6 +29,17 @@ $(document).ready(function () {
         var lastName = $("#signup-lastname").val().trim();
         var userEmail = $("#signup-email").val().trim();
         var password = $("#signup-password").val().trim();
+
+        // Confirm input fields not empty.
+        if (!userName || !firstName || !lastName || !userEmail || !password) {
+            return;
+        }
+
+        // Confirm password entered correctly.
+        var passwordConfirm = $("#signup-passconfirm").val().trim();
+        if (password !== passwordConfirm) {
+            return;
+        }
 
         var newUser = {
             userName: userName,
