@@ -23,6 +23,12 @@ $(document).ready(function () {
             data: newApp
         }).then(function(result) {
             location.reload();
-        }); 
+        });     
     });
+
+    $(document.body).on("click", ".application", function (event) {
+        event.preventDefault();
+        const appId = event.target.getAttribute("data-id");
+        window.location.pathname = (`/${appId}`);
+    })
 });
