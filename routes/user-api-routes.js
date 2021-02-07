@@ -29,7 +29,7 @@ module.exports = function(app) {
             password: req.params.password
         }
     }).then(function (result) {
-        res.json(result);
+        res.json([result]);
     });
   });
 

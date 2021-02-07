@@ -22,8 +22,9 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [8],
-                // is: /^[0-9a-z]{64}$/i // This is causing problems. -JK
-    //Changed a-f to a-z
+                isAlphanumeric: true
+    //Changed a-f to a-z -> Changed to isAlphanumeric, wasn't getting the regex to work properly
+
             }
         },
         email: {
@@ -31,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             unqiue: true,
             validate: {
-    //Do we need the length here?
+    //Do we need the length here? - > not necessarily, but it basically guarantees at least a length of x@y
                 len: [3],
                 isEmail: true 
             }
