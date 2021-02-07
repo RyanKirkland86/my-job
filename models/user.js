@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [8],
-                // is: /^[0-9a-z]{64}$/i
+                // is: /^[0-9a-z]{64}$/i // This is causing problems. -JK
     //Changed a-f to a-z
             }
         },
@@ -38,10 +38,10 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
+    // These need to stay commented out until ready... they are blocking functionality for now.
     // User.prototype.validPassword = function(password) {
     //     return bcrypt.compareSync(password, this.password);
     // };
-
     // User.addHook("beforeCreate", function(user) {
     //     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     // });

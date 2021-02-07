@@ -15,14 +15,6 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/landing.html"));
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  // app.get("/dashboard/:id", isAuthenticated, function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
-  // });
-
-
-  /////////// This works
   app.get("/dashboard/:id", async (req, res) => {
     const user = await db.User.findOne({
       where: { id: req.params.id }
@@ -30,24 +22,12 @@ module.exports = function(app) {
     const apps = await db.Application.findAll({
       where: { UserID: req.params.id }
     })
-    console.log(apps);
     const data = {
       firstname: user.firstName,
       applications: apps
     }
-    res.render("test", data);
+    res.render("dashboard", data);
   });
-
-  /////////// This doesn't work
-  app.get("/dashboard/:id", async (req, res) => {
-    const user = await db.User.findOne({
-      where: { id: req.params.id }
-    });
-    console.log(user);
-    res.render("test", user);
-  });
-
-
 
   app.get("/dashboard/:id/:appid", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/application.html"));
