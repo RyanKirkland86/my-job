@@ -1,10 +1,9 @@
-// *****************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-//
-// ******************************************************************************
-// *** Dependencies
+// Dependencies
 // =============================================================
 var express = require("express");
+var exphbs = require('express-handlebars');
+var _handlebars = require('handlebars');
+var { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 
 // Sets up the Express App
 // =============================================================
@@ -20,6 +19,10 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
+
+// Configure handlebars.
+app.engine("handlebars", exphbs({ defaultLayout: "main", handlebars: allowInsecurePrototypeAccess(_handlebars) }));
+app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================

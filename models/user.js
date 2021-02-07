@@ -1,4 +1,4 @@
-var bcrypt = require("bcryptjs");
+// var bcrypt = require("bcryptjs");
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
@@ -24,6 +24,7 @@ module.exports = function(sequelize, DataTypes) {
                 len: [8],
                 isAlphanumeric: true
     //Changed a-f to a-z -> Changed to isAlphanumeric, wasn't getting the regex to work properly
+
             }
         },
         email: {
@@ -38,13 +39,13 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    User.prototype.validPassword = function(password) {
-        return bcrypt.compareSync(password, this.password);
-    };
-
-    User.addHook("beforeCreate", function(user) {
-        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-    });
+    // These need to stay commented out until ready... they are blocking functionality for now.
+    // User.prototype.validPassword = function(password) {
+    //     return bcrypt.compareSync(password, this.password);
+    // };
+    // User.addHook("beforeCreate", function(user) {
+    //     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    // });
 
     User.associate = function(models) {
         User.hasMany(models.Application, {
