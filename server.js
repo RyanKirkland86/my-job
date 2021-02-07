@@ -23,7 +23,9 @@ app.use(express.static("public"));
 
 // Configure handlebars.
 const exphbs = require('express-handlebars');
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+const _handlebars = require('handlebars');
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+app.engine("handlebars", exphbs({ defaultLayout: "main", handlebars: allowInsecurePrototypeAccess(_handlebars) }));
 app.set("view engine", "handlebars");
 
 // Routes

@@ -31,10 +31,11 @@ module.exports = function(app) {
       where: { UserID: req.params.id }
     })
     console.log(apps);
-    res.render("test", {
+    const data = {
       firstname: user.firstName,
       applications: apps
-    });
+    }
+    res.render("test", data);
   });
 
   /////////// This doesn't work
