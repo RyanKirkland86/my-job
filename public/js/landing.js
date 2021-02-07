@@ -18,7 +18,8 @@ $(document).ready(function () {
             if(data === null)
             alert("Please create an account");
             userId = data.id;
-            window.location = "/" + userId;
+            console.log(data.id);
+            window.location = "/dashboard/" + userId;
         });
     }
 
