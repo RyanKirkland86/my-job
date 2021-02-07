@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
             default: "Applied - Awaiting Response",
             validate: {
                 len: [1],
-                isIn: [statusopts]
+                // isIn: [statusopts]
             }
         },
         recruiterName: {
