@@ -1,0 +1,19 @@
+
+<p>
+  Username: {{userName}}
+</p>
+<p>
+  First name: {{firstName}}
+</p>
+<p>
+  Last name: {{lastName}}
+</p>
+<p>
+  Email: {{email}}
+</p>
+<ul>
+      <h4>Applications</h4>
+      {{#each application}}
+      {{> app-block}}
+      {{/each}}
+</ul>
