@@ -22,19 +22,22 @@ module.exports = function(app) {
   //  res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
 
   app.get("/dashboard/:id", async (req, res) => {
-    const user = await db.User.findOne({
+    db.User.findAll({
       where: { id: req.params.id }
+    }).then(function(result) {
+      console.log(result);
+      var applications = {firstName: result[0].dataValues.firstName};
+      db.Application.findAll({
+        where: { UserID: result[0].dataValues.id }
+      }).then(function(result) {
+        for(var i =0; i< result.length; i++) {
+          applications.applications = result[i].dataValues;
+        }
+        res.render("dashboard", applications);
+        });
+      });
     });
-    const apps = await db.Application.findAll({
-      where: { UserID: req.params.id }
-    })
-    const data = {
-      firstname: user.firstName,
-      applications: apps
-    }
-    res.render("dashboard", data);
-
-  });
+  
 
   app.get("/dashboard/:id/:appid", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/application.html"));
