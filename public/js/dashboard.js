@@ -7,6 +7,9 @@ $(document).ready(function () {
         var jobLink = $("#jobsitelink").val().trim();
         var recruiterName = $("#recruiterName").val().trim();
         var recruiterContact = $("#recruiterEmail").val().trim();
+        var user = window.location.href.slice(-1);
+        console.log(user);
+
 
         var newApp = {
             company: compName,
@@ -15,13 +18,15 @@ $(document).ready(function () {
             status: "Applied - Awaiting Response",
             recruiterName: recruiterName,
             recruiterContact: recruiterContact,
-            createdAt: createDate
+            createdAt: createDate,
+            UserId: user
         }
 
         $.ajax("/api/newapp", {
             type: "POST",
             data: newApp
         }).then(function(result) {
+            console.log(result);
             location.reload();
         });     
     });
