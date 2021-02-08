@@ -47,7 +47,27 @@ module.exports = function(app) {
     });
   });
 
+/*
+  app.post("/api/newUser", function(req, res) {
+    db.User.create({
+      userName: req.body.userName,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      password: req.body.password,
+      email: req.body.email
+    })
+    .then(function() {
+      res.redirect(307, "/api/login");
+    })
+    .catch(function(err) {
+      res.status(401).json(err);
+    });
+  });
+  */
+
   /* Adding tested post method. need to check if db.User.create is correct method using sequelize
+  This may already be taken care of with bcrypt being called in the User model,
+  if so the above function should work for creating and hashing password login info.
   app.post("/api/newuser", async (req, res) => {
     try {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
