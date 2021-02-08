@@ -13,11 +13,13 @@ module.exports = function(app) {
   });
 
   // GET route for getting single user
-  app.get("/api/notes/:id", function(req, res) {
-    db.Note.findAll({where: {id: req.params.id}})
-      .then(function(result) {
-        res.json(result);
-      });
+  app.put("/api/notes/edit/:id", function(req, res) {
+    db.Note.update(
+      {body: req.body.body},
+      {where: {id: req.params.id}
+    }).then(function(result) {
+      res.json(result);
+    });
   });
 
   app.post("/api/notes", function(req, res) {
