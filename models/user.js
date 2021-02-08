@@ -48,12 +48,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
-<<<<<<< Updated upstream
-
-
-=======
     
->>>>>>> Stashed changes
     User.prototype.validPassword = function(password) {
         return bcrypt.compareSync(password, this.password);
     };

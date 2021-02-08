@@ -31,6 +31,10 @@ $(document).ready(function () {
         location.reload();
     });
 
-
+    $("#").on("click", function(event) {
+        event.preventDefault();
+        var noteID = event.target.data-id;
+        console.log(noteID);
+    });
     
 });
