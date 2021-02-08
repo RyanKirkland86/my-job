@@ -11,12 +11,14 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     // If the user already has an account send them to the dashboard page
     if (req.user) {
-      res.redirect("/dashboard/:id");
+      console.log(req.user)
+      // res.redirect("/dashboard/:id");
+      res.redirect("/dashboard/" + req.user.id)
     }
     res.sendFile(path.join(__dirname, "../public/html/landing.html"));
   });
 
-  app.get("/dashboard/:id/", async (req, res) => {
+  app.get("/dashboard/:id", isAuthenticated, async (req, res) => {
     const user = await db.User.findOne({
       where: { id: req.params.id }
     }).catch(err => console.log(err));
@@ -30,7 +32,7 @@ module.exports = function(app) {
     res.render("dashboard", data);
   });
 
-  app.get("/dashboard/:id/:appid", async (req, res) => {
+  app.get("/dashboard/:id/:appid", isAuthenticated, async (req, res) => {
     const app = await db.Application.findOne({
       where: { id: req.params.appid }
     }).catch(err => console.log(err));
