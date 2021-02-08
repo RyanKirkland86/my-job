@@ -34,6 +34,7 @@ $(document).ready(function () {
     $(document.body).on("click", ".application", function (event) {
         event.preventDefault();
         const appId = event.target.getAttribute("data-id");
-        window.location.pathname = (`/${appId}`);
+        var user = window.location.href.slice(-1);
+        window.location.pathname = (`/dashboard/${user}/${appId}`);
     })
 });

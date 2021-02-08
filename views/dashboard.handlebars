@@ -133,29 +133,32 @@
   </div>
   <script>
     window.onload = () => {
-    var days = [];
-    for (var i = 1; i < 31; i++) {
-      days.push(i);
-    }
-    var applications = [];
-    for (var i = 0; i < 30; i++) {
-      var num = Math.floor(Math.random() * 11)
-      applications.push(num);
-    }
-    const ctx = document.getElementById('app-chart');
-    const applicationChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: days,
-        datasets: [{
-            label: 'Applications',
-            backgroundColor: 'rgb(175, 107, 88)',
-            borderColor: 'rgb(85, 96, 82)',
-            data: applications
-        }],
-        options: { maintainAspectRatio: false }
+      
+
+      var days = [];
+      for (var i = 1; i < 31; i++) {
+        days.push(i);
       }
-    })
+      var applications = [];
+      for (var i = 0; i < 30; i++) {
+        var num = Math.floor(Math.random() * 11)
+        applications.push(num);
+      }
+      
+      const ctx = document.getElementById('app-chart');
+      const applicationChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: days,
+          datasets: [{
+              label: 'Applications',
+              backgroundColor: 'rgb(175, 107, 88)',
+              borderColor: 'rgb(85, 96, 82)',
+              data: applications
+          }],
+          options: { maintainAspectRatio: false }
+        }
+      })
     }
   </script>
   <script src="../js/dashboard.js"></script>
