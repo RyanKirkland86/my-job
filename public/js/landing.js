@@ -14,11 +14,11 @@ $(document).ready(function () {
     })
 
     function getUser(username, password) {
-        $.get("/api/login/" + username + "/" + password, function (data) {
-            if(data === null)
-            alert("Please create an account");
-            userId = data.id;
-            window.location = "/" + userId;
+        $.ajax(`api/login/${username}/${password}`, {
+            type: "GET",
+        }).then(function(result) {
+            console.log(result[0]);
+            window.location = "/dashboard/" + result[0].id;
         });
     }
 

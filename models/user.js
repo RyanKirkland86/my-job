@@ -1,11 +1,14 @@
-// var bcrypt = require("bcryptjs");
+var bcrypt = require("bcryptjs");
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {len: [1]}
+            unique: true,
+            validate: {
+                len: [1]
+            },
         },
     //Allowing null first name...We will show either welcome First name as default or username if no first name available
         firstName: {
@@ -22,8 +25,9 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [8],
-                // is: /^[0-9a-z]{64}$/i // This is causing problems. -JK
-    //Changed a-f to a-z
+                isAlphanumeric: true
+    //Changed a-f to a-z -> Changed to isAlphanumeric, wasn't getting the regex to work properly
+
             }
         },
         email: {
@@ -31,20 +35,20 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             unqiue: true,
             validate: {
-    //Do we need the length here?
+    //Do we need the length here? - > not necessarily, but it basically guarantees at least a length of x@y
                 len: [3],
                 isEmail: true 
             }
         }
     });
 
-    // These need to stay commented out until ready... they are blocking functionality for now.
-    // User.prototype.validPassword = function(password) {
-    //     return bcrypt.compareSync(password, this.password);
-    // };
-    // User.addHook("beforeCreate", function(user) {
-    //     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-    // });
+
+    User.prototype.validPassword = function(password) {
+        return bcrypt.compareSync(password, this.password);
+    };
+    User.addHook("beforeCreate", function(user) {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    });
 
     User.associate = function(models) {
         User.hasMany(models.Application, {

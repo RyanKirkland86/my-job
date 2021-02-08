@@ -4,6 +4,7 @@ var db = require("../models")
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
+const user = require("../models/user");
 
 module.exports = function(app) {
 
@@ -15,23 +16,38 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/landing.html"));
   });
 
-  app.get("/dashboard/:id", async (req, res) => {
+  app.get("/dashboard/:id/", async (req, res) => {
     const user = await db.User.findOne({
       where: { id: req.params.id }
-    });
+    }).catch(err => console.log(err));
     const apps = await db.Application.findAll({
-      where: { UserID: req.params.id }
-    })
+      where: { UserId: req.params.id }
+    }).catch(err => console.log(err));
     const data = {
       id: user.id,
       firstname: user.firstName,
-      applications: apps
+      applications: apps 
     }
     res.render("dashboard", data);
   });
 
-  app.get("/dashboard/:id/:appid", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/application.html"));
+  app.get("/dashboard/:id/:appid", async (req, res) => {
+    const app = await db.Application.findOne({
+      where: { id: req.params.appid }
+    }).catch(err => console.log(err));
+    const note = await db.Note.findAll({
+      where: { ApplicationId: req.params.appid }
+    }).catch(err => console.log(err));
+    const data = {
+      date: app.createdAt,
+      company: app.company,
+      role: app.role,
+      status: app.status,
+      link: app.jobsitelink,
+      notes: note
+    }
+    console.log(data.notes);
+    res.render("application", data);
   });
 
 };

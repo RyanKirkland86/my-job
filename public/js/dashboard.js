@@ -1,13 +1,40 @@
-$(document).ready(() => {
-  $(document.body).on('click', '.application', (event) => {
-    event.preventDefault();
+$(document).ready(function () {
+    $("#save-app").on("click", function(event) {
+        event.preventDefault();
+        var createDate = $("#apply-date").val().trim();
+        var compName = $("#compName").val().trim();
+        var roleName = $("#roleName").val().trim();
+        var jobLink = $("#jobsitelink").val().trim();
+        var recruiterName = $("#recruiterName").val().trim();
+        var recruiterContact = $("#recruiterEmail").val().trim();
+        var user = window.location.href.slice(-1);
+        console.log(user);
 
-    const appId = event.target.getAttribute('data-id');
-    const userId; // how do I get req.params.id ??
 
-    console.log(appId)
-    console.log(userId)
+        var newApp = {
+            company: compName,
+            role: roleName,
+            jobsitelink: jobLink,
+            status: "Applied - Awaiting Response",
+            recruiterName: recruiterName,
+            recruiterContact: recruiterContact,
+            createdAt: createDate,
+            UserId: user
+        }
 
-    window.location.pathname = (`/dashboard/${userId}/${appId}`)
-  })
-})
+        $.ajax("/api/newapp", {
+            type: "POST",
+            data: newApp
+        }).then(function(result) {
+            console.log(result);
+            location.reload();
+        });     
+    });
+
+    $(document.body).on("click", ".application", function (event) {
+        event.preventDefault();
+        const appId = event.target.getAttribute("data-id");
+        var user = window.location.href.slice(-1);
+        window.location.pathname = (`/dashboard/${user}/${appId}`);
+    })
+});
