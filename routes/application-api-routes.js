@@ -20,8 +20,15 @@ module.exports = function(app) {
         });
     });
 
-    app.put("api/new/applications/:id", function(req, res) {
-        db.Application.update(req.body, {id: req.params.id}).then(function(result) {
+    app.put("/api/applications/edit/:id", function(req, res) {
+        db.Application.update(
+          {company: req.body.company,
+          role: req.body.role,
+          source: req.body.source,
+          status: req.body.status
+          }, 
+          {where: {id: req.params.id}
+        }).then(function(result) {
             res.json(result);
         });
     });
