@@ -33,8 +33,18 @@ $(document).ready(function () {
 
     $("#note-edits").on("click", function(event) {
         event.preventDefault();
-        var noteID = event.target.data-id;
+        var noteID = $("#edit-noteID").val().trim();
+        var body = {};
+        body.body = $("#edit-noteBody").val().trim();
         console.log(noteID);
+        console.log(body);
+        $.ajax(`/api/notes/edit/${noteID}`, {
+            type: "PUT",
+            data: body
+        }).then(function(result) {
+            console.log(result);
+        });
+        location.reload();
     });
     
 });
