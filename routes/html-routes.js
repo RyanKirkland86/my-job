@@ -42,10 +42,10 @@ module.exports = function(app) {
       company: app.company,
       role: app.role,
       status: app.status,
-      link: app.jobsitelink,
+      jobsitelink: app.jobsitelink,
       notes: note
     }
-    console.log(data.notes);
+    // console.log(data.notes);
     res.render("application", data);
   });
 
