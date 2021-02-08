@@ -16,29 +16,6 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/landing.html"));
   });
 
-
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  // app.get("/dashboard/:id", function(req, res) {
-  //  res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
-
-  // app.get("/dashboard/:id", (req, res) => {
-  //   db.User.findAll({
-  //     where: { id: req.params.id },
-  //   }).then(function (result) {
-  //     console.log(result);
-  //     var applications = { firstName: result[0].dataValues.firstName };
-  //     db.Application.findAll({
-  //       where: { UserID: result[0].dataValues.id },
-  //     }).then(function (result) {
-  //       for (var i = 0; i < result.length; i++) {
-  //         applications.applications = result[i].dataValues;
-  //       }
-  //       res.render("dashboard", applications);
-  //     });
-  //   });
-  // });
-
   app.get("/dashboard/:id/", async (req, res) => {
     const user = await db.User.findOne({
       where: { id: req.params.id }
@@ -55,26 +32,21 @@ module.exports = function(app) {
 
   app.get("/dashboard/:id/:appid", async (req, res) => {
     const app = await db.Application.findOne({
-      where: { id: req.params.id }
+      where: { id: req.params.appid }
     }).catch(err => console.log(err));
     const note = await db.Note.findAll({
       where: { ApplicationId: req.params.appid }
     }).catch(err => console.log(err));
-    
-
     const data = {
       date: app.createdAt,
       company: app.company,
       role: app.role,
       status: app.status,
+      link: app.jobsitelink,
       notes: note
     }
     console.log(data.notes);
     res.render("application", data);
   });
-
-  // app.get("/dashboard/:id/:appid", isAuthenticated, function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/html/application.html"));
-  // });
 
 };
