@@ -40,14 +40,15 @@ module.exports = function(app) {
     const app = await db.Application.findOne({
       where: { id: req.params.id }
     }).catch(err => console.log(err));
-    const notes = await db.Note.findAll({
+    const note = await db.Note.findAll({
       where: { ApplicationId: req.params.id }
     }).catch(err => console.log(err));
     const data = {
       date: app.createdAt,
       company: app.company,
       role: app.role,
-      notes: notes
+      noteDate: note.createdAt,
+      noteBody: note.body
     }
     res.render("application", data);
   })
