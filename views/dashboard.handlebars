@@ -26,10 +26,10 @@
 
     <!-- Graph & Tracking Section -->
     <div class="row justify-content-center my-4">
-      <div class="col-9">
+      <div class="col-9 chart">
         <canvas id="app-chart"></canvas>
       </div>
-      <div class="col-3 d-flex border" style="height:200px;" id="tracking">
+      <div class="col-3 d-flex border" style="height:250px;" id="tracking">
         <p class="text-center align-self-center flex-grow-1">(Tracking Area)</p>
       </div>
     </div>
@@ -141,7 +141,7 @@
       }
       var applications = [];
       for (var i = 0; i < 30; i++) {
-        var num = Math.floor(Math.random() * 11)
+        var num = Math.floor(Math.random() * 6)
         applications.push(num);
       }
       
@@ -151,15 +151,19 @@
         data: {
           labels: days,
           datasets: [{
-              label: 'Applications',
+              label: 'Applications submitted over last 30 days',
               backgroundColor: 'rgb(175, 107, 88)',
               borderColor: 'rgb(85, 96, 82)',
               data: applications
           }],
-          options: { maintainAspectRatio: false }
+          options: { 
+            maintainAspectRatio: false,
+            responsive: true,  
+          }
         }
       })
     }
+    chart.canvas.parentNode.style.height = '250px';
   </script>
   <script src="../js/dashboard.js"></script>
   
