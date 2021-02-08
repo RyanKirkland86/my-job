@@ -5,17 +5,10 @@ module.exports = function(sequelize, DataTypes) {
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
-<<<<<<< Updated upstream
             unique: true,
             validate: {
                 len: [1]
             },
-=======
-            isUnique: true,
-            validate: {
-                len: [1],
-            }
->>>>>>> Stashed changes
         },
     //Allowing null first name...We will show either welcome First name as default or username if no first name available
         firstName: {

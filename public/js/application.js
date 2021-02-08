@@ -5,7 +5,7 @@ $(document).ready(function () {
         var source = $("#edit-source").val().trim();
         var company = $("#edit-company").val().trim();
         var role = $("#edit-role").val().trim();
-        var appID = window.location.href.slice(-3,-2);
+        var appID = window.location.href.slice(-1);
         // console.log(appID);
 
         // Confirm input fields not empty.
@@ -15,7 +15,7 @@ $(document).ready(function () {
 
         var appEdits = {
             status: status,
-            source: source,
+            jobsitelink: source,
             company: company,
             role: role
         }
@@ -31,7 +31,7 @@ $(document).ready(function () {
         location.reload();
     });
 
-    $("#").on("click", function(event) {
+    $("#note-edits").on("click", function(event) {
         event.preventDefault();
         var noteID = event.target.data-id;
         console.log(noteID);

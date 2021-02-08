@@ -24,7 +24,7 @@ module.exports = function(app) {
         db.Application.update(
           {company: req.body.company,
           role: req.body.role,
-          source: req.body.source,
+          jobsitelink: req.body.jobsitelink,
           status: req.body.status
           }, 
           {where: {id: req.params.id}

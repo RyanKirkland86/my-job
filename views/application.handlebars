@@ -17,7 +17,7 @@
           </div>
           <div class="col-4">
             <h6 class="text-center text-decoration-underline">Source</h6>
-            <p class="text-center data-field">{{source}}</p>
+            <p class="text-center data-field">{{jobsitelink}}</p>
           </div>
           <div class="col-4">
             <h6 class="text-center text-decoration-underline fs-4 mono-font dark">Next Step</h6>
@@ -27,7 +27,8 @@
       </div>
     </div>
 
-<div class="modal mt-5" tabindex="-1" id="edit-form">
+{{!-- Create modal for editing an application --}}
+  <div class="modal mt-5" tabindex="-1" id="edit-form">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -40,7 +41,7 @@
           <div class="input-group mb-3">
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-status">
           </div>
-          <p class="mb-1">Source</p>
+          <p class="mb-1">Source (Must be a URL)</p>
           <div class="input-group mb-3">
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-source">
           </div>
@@ -66,15 +67,36 @@
 
     <div class="row justify-content-center mt-4">
       <div class="col-10 p-3 light-background rounded-border">
-        <a class="float-end edit-btn" id="edit-notes">Edit</a>
         <h3 class="m-3 p-2 mono-font dark">Notes:</h3>
         <div class="m-3 p-2">
           {{#each notes}}
-          {{> note-block}}
+           {{> note-block}}
           {{/each}}
         </div>
       </div>
     </div>
+
+    {{!-- Create modal for updating a note --}}
+  <div class="modal mt-5" tabindex="-1" id="edit-note-form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Note</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Input Fields -->
+        <div class="modal-body">
+          <p class="mb-1">Note Body</p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-noteBody">
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary modal-btn" id="note-edits">Save Note Edits</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   </div>
   <script src="../../js/application.js"></script>
