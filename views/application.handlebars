@@ -1,8 +1,8 @@
 <!-- Change background color -->
-<style> body {background: #cbbcb1;} </style>
+
 <div class="container py-5">
     <!-- Company and role -->
-    <div class="row justify-content-center dark-background mt-5">
+    <div class="row justify-content-center green-background mt-5">
       <div class="col-8 p-3">
         <h1 class="text-center display-3 light mono-font">{{company}}</h1>
         <h4 class="text-center light mono-font mt-4">{{role}}</h4>
@@ -30,7 +30,7 @@
     </div>
     <div class="row justify-content-center mt-4">
       <div class="col-10 p-3 notes-section">
-        <a class="float-end">Edit</a>
+        <a class="float-end edit-btn">Edit</a>
         <h3 class="m-3 p-2">Notes:</h3>
         <div class="m-3 p-2">
           {{#each notes}}
@@ -41,4 +41,3 @@
     </div>
 
   </div>
-  <script src="../js/application.js"></script>
