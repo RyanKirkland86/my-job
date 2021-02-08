@@ -26,7 +26,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post("/api/applications", function(req, res) {
+    app.post("/api/newapp", function(req, res) {
         // Create a User with the data available to us in req.body
         db.Application.create(req.body).then(function(result) {
           res.json(result);

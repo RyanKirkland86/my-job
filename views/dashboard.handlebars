@@ -3,7 +3,7 @@
     <!-- Welcome Section -->
     <div class="row justify-content-center mt-5">
       <div class="col-6">
-        <h1 class="display-5">Welcome, <span id="firstName">{{firstname}}</span>!</h1>
+        <h1 class="display-5">Welcome, <span id="firstName">{{firstName}}</span>!</h1>
       </div>
       <div class="col-6">
         <p class="text-center" id="quote-text">"If opportunity doesn't knock, then build a door."</p>
@@ -67,19 +67,27 @@
           <div class="modal-body">
             <p class="m-0">Date</p>
             <div class="input-group mb-3">
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MM/DD/YYYY">
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MM/DD/YYYY" id="apply-date">
             </div>
             <p class="m-0">Company</p>
             <div class="input-group mb-3">
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="compName">
             </div>
             <p class="m-0">Position</p>
             <div class="input-group mb-3">
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="roleName">
             </div>
-            <p class="m-0">Source</p>
+            <p class="m-0">Source: Job Site Link</p>
             <div class="input-group mb-3">
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="jobsitelink">
+            </div>
+            <p class="m-0">Recruiter Name (Optional)</p>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="recruiterName">
+            </div>
+            <p class="m-0">Recruiter Email (Optional)</p>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="recruiterEmail">
             </div>
             <p class="m-0">Notes</p>
             <div class="input-group">
@@ -88,7 +96,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary modal-btn">Sign Up</button>
+            <button type="button" class="btn btn-primary modal-btn" id="save-app">Save Application</button>
           </div>
         </div>
       </div>
