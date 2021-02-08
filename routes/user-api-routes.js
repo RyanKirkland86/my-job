@@ -1,9 +1,16 @@
 var db = require("../models");
+var passport = require("../config/passport");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
+  //passport.authenticate middleare with local strategy
+  //checks fi user has valid login credentials
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json(req.user);
+  })
+  
   // GET route for getting all of the users
   app.get("/api/users/", function(req, res) {
     db.User.findAll({})
