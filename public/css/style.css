@@ -5,6 +5,9 @@ body {
   font-family: 'Roboto', sans-serif;
   background: #f2efea;
 }
+.green-background {
+  background: #556052;
+}
 .dark-background {
   background: #cbbcb1;
 }

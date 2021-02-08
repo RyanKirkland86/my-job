@@ -43,6 +43,7 @@ module.exports = function(app) {
     const note = await db.Note.findAll({
       where: { ApplicationId: req.params.id }
     }).catch(err => console.log(err));
+    console.log(app);
     const data = {
       date: app.createdAt,
       company: app.company,
@@ -51,7 +52,7 @@ module.exports = function(app) {
       noteBody: note.body
     }
     res.render("application", data);
-  })
+  });
 
   app.get("/dashboard/:id/:appid", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/application.html"));

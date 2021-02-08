@@ -12,9 +12,25 @@
     </div>
 
     <!-- Stat Bar Section -->
-    <div class="row justify-content-center mt-4">
-      <div class="col-12 d-flex dark-background rounded-border" style="height:100px;" id="stats-bar">
-        <p class="text-center align-self-center flex-grow-1">(Stats Area)</p>
+    <div class="row justify-content-around dark-background rounded-border p-4 mt-4">
+      <div class="col-4 justify-content-center">
+        <h4 class="mono-font dark text-center my-auto">Applications <span class="green-background light rounded-border p-2">27</span></h4>
+      </div>
+      <div class="col-4 justify-content-center">
+        <h4 class="mono-font dark text-center my-auto">Responses <span class="green-background light rounded-border p-2">19</span></h4>
+      </div>
+      <div class="col-4 justify-content-center">
+        <h4 class="mono-font dark text-center my-auto">Interviews <span class="green-background light rounded-border p-2">4</span></h4>
+      </div>
+    </div>
+
+    <!-- Graph & Tracking Section -->
+    <div class="row justify-content-center my-4">
+      <div class="col-9">
+        <canvas id="app-chart"></canvas>
+      </div>
+      <div class="col-3 d-flex border" style="height:200px;" id="tracking">
+        <p class="text-center align-self-center flex-grow-1">(Tracking Area)</p>
       </div>
     </div>
 
@@ -107,3 +123,32 @@
     {{/each}}
     
   </div>
+  <script>
+    window.onload = () => {
+    var days = [];
+    for (var i = 1; i < 31; i++) {
+      days.push(i);
+    }
+    var applications = [];
+    for (var i = 0; i < 30; i++) {
+      var num = Math.floor(Math.random() * 11)
+      applications.push(num);
+    }
+    const ctx = document.getElementById('app-chart');
+    const applicationChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: days,
+        datasets: [{
+            label: 'Applications',
+            backgroundColor: 'rgb(175, 107, 88)',
+            borderColor: 'rgb(85, 96, 82)',
+            data: applications
+        }],
+        options: { maintainAspectRatio: false }
+      }
+    })
+    }
+  </script>
+  <script src="../js/dashboard.js"></script>
+  
