@@ -21,20 +21,23 @@ module.exports = function(app) {
   // app.get("/dashboard/:id", function(req, res) {
   //  res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
 
-  app.get("/dashboard/:id", async (req, res) => {
-    const user = await db.User.findOne({
+  app.get("/dashboard/:id", (req, res) => {
+    db.User.findAll({
       where: { id: req.params.id }
-    }).catch(err => console.log(err));
-    const apps = await db.Application.findAll({
-      where: { UserId: req.params.id }
-    }).catch(err => console.log(err));
-    const data = {
-      firstname: user.firstName,
-      applications: apps
-    }
-    res.render("dashboard", data);
-
-  });
+    }).then(function(result) {
+      console.log(result);
+      var applications = {firstName: result[0].dataValues.firstName};
+      db.Application.findAll({
+        where: { UserID: result[0].dataValues.id }
+      }).then(function(result) {
+        for(var i =0; i< result.length; i++) {
+          applications.applications = result[i].dataValues;
+        }
+        res.render("dashboard", applications);
+        });
+      });
+    });
+  
 
   app.get("/dashboard/:id/:appid", async (req, res) => {
     const app = await db.Application.findOne({
