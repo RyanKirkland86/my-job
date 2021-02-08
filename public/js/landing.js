@@ -14,11 +14,15 @@ $(document).ready(function () {
     })
 
     function getUser(username, password) {
-        $.ajax(`api/login/${username}/${password}`, {
-            type: "GET",
+        $.ajax(`api/login`, {
+            type: "POST",
+            data: {
+                userName: username,
+                password: password
+            }
         }).then(function(result) {
-            console.log(result[0]);
-            window.location = "/dashboard/" + result[0].id;
+            // console.log(result[0]);
+            // window.location = "/dashboard/" + result[0].id;
         });
     }
 
@@ -52,9 +56,14 @@ $(document).ready(function () {
         // Post to Users table
         $.ajax("api/newuser", {
             type: "POST",
-            data: newUser
+            data: newUser,
+            error: function(error){
+                console.log(error);
+                location.reload();
+            }
         }).then(function(result) {
             getUser(userName, password);
+
         });
     });
 });
