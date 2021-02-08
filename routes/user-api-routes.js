@@ -40,6 +40,19 @@ module.exports = function(app) {
     });
   });
 
+  /* Adding tested post method. need to check if db.User.create is correct method using sequelize
+  app.post("/api/newuser", async (req, res) => {
+    try {
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      const newUser = { userName: req.body.userName, password: hashedPassword };
+      db.User.create(newUser);
+      res.status(201).send()
+    } catch {
+      res.status(500).send()
+    }
+  });
+  */
+
   app.delete("/api/users/:id", function(req, res) {
     // Delete the Author with the id available to us in req.params.id
     db.User.destroy({
