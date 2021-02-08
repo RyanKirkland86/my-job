@@ -19,12 +19,20 @@ $(document).ready(function () {
             data: {
                 userName: username,
                 password: password
-            }
+            },
+            // success: function(result) {
+            //     document.open();
+            //     document.write(result);
+            //     document.close();
+            // }
         }).then(function(result) {
+            if(result.message == "Redirect") {
+                window.location.replace(result.url);
+            } 
             // console.log(result[0]);
             // window.location = "/dashboard/" + result[0].id;
         });
-    }
+    } 
 
     $("#sign-up-btn").on("click", function(event) {
         event.preventDefault();

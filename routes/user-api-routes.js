@@ -9,8 +9,14 @@ module.exports = function(app) {
   //checks fi user has valid login credentials
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     console.log(req.user.dataValues.id);
-    res.redirect("/dashboard/" + req.user.dataValues.id);
-  })
+    // res.setHeader("Content-Type", "text/html");
+    // res.redirect("/dashboard/" + req.user.dataValues.id);
+    res.json({
+      message: "Redirect",
+      url: "/dashboard/" + req.user.dataValues.id
+    })
+    // res.send("/dashboard/" + req.user.dataValues.id);
+  });
   
   // GET route for getting all of the users
   app.get("/api/users/", function(req, res) {

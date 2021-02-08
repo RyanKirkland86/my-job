@@ -11,7 +11,9 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     // If the user already has an account send them to the dashboard page
     if (req.user) {
-      res.redirect("/dashboard/" + req.user.dataValues.id);
+      console.log(req.user)
+      // res.redirect("/dashboard/:id");
+      res.redirect("/dashboard/" + req.user.id)
     }
     res.sendFile(path.join(__dirname, "../public/html/landing.html"));
   });
