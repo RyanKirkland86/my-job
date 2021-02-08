@@ -1,56 +1,46 @@
 <div class="container">
 
     <!-- Welcome Section -->
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-4">
       <div class="col-6">
-        <h1 class="display-5">Welcome, <span id="firstName">{{firstname}}</span>!</h1>
+        <h1 class="display-5 mono-font dark ms-5">Welcome, <span id="firstName">{{firstname}}</span>!</h1>
       </div>
       <div class="col-6">
-        <p class="text-center" id="quote-text">"If opportunity doesn't knock, then build a door."</p>
-        <p id="quote-author">- Milton Berle</p>
+        <p class="text-center fancy-font dark mb-1 mt-2">"If opportunity doesn't knock, then build a door."</p>
+        <p class="text-center ps-5 dark">- Milton Berle</p>
       </div>
     </div>
 
     <!-- Stat Bar Section -->
     <div class="row justify-content-center mt-4">
-      <div class="col-12 d-flex" id="stats-bar">
+      <div class="col-12 d-flex dark-background rounded-border" style="height:100px;" id="stats-bar">
         <p class="text-center align-self-center flex-grow-1">(Stats Area)</p>
       </div>
     </div>
-
-    <!-- Graph & Tracking Section -->
-    <!--div class="row justify-content-center my-4">
-      <div class="col-8 d-flex border" id="graph">
-        <p class="text-center align-self-center flex-grow-1">(Graph Area)</p>
-      </div>
-      <div class="col-4 d-flex border" id="tracking">
-        <p class="text-center align-self-center flex-grow-1">(Tracking Area)</p>
-      </div>
-    </div-->
 
     <!-- Search & Filter Section -->
     <div class="row justify-content-center mt-5">
       <!-- Filter -->
       <div class="col-7 d-flex">
         <div class="dropdown me-auto">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-secondary dark-btn hover-dark mono-font dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             Filter Results
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Starred</a></li>
-            <li><a class="dropdown-item" href="#">Interviewed</a></li>
-            <li><a class="dropdown-item" href="#">Responded</a></li>
+            <li><a class="dropdown-item mono-font dark" href="#">Starred</a></li>
+            <li><a class="dropdown-item mono-font dark" href="#">Interviewed</a></li>
+            <li><a class="dropdown-item mono-font dark" href="#">Responded</a></li>
           </ul>
         </div>
-        <button type="button" id="new" class="btn btn-primary me-auto" data-bs-toggle="modal" data-bs-target="#newapp-form">
+        <button type="button" id="new" class="btn btn-primary dark-btn hover-dark mono-font me-auto" data-bs-toggle="modal" data-bs-target="#newapp-form">
           New Application
         </button>
       </div>
       <!-- Search -->
       <div class="col-5">
         <form class="d-flex">
-          <input class="form-control" type="search" placeholder="Search for an application" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit" id="btn-search">Search</button>
+          <input class="form-control mono-font" type="search" placeholder="Search for an application" aria-label="Search">
+          <button class="btn dark-btn mono-font hover-dark btn-outline-success" type="submit" id="btn-search">Search</button>
         </form>
       </div>
     </div>
@@ -60,35 +50,35 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Enter application info.</h5>
+            <h5 class="modal-title mono-font dark">Enter application info.</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <!-- Input Fields -->
           <div class="modal-body">
-            <p class="m-0">Date</p>
+            <p class="m-0 mono-font dark">Date</p>
             <div class="input-group mb-3">
               <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MM/DD/YYYY">
             </div>
-            <p class="m-0">Company</p>
+            <p class="m-0 mono-font dark">Company</p>
             <div class="input-group mb-3">
               <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <p class="m-0">Position</p>
+            <p class="m-0 mono-font dark">Position</p>
             <div class="input-group mb-3">
               <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <p class="m-0">Source</p>
+            <p class="m-0 mono-font dark">Source</p>
             <div class="input-group mb-3">
               <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <p class="m-0">Notes</p>
+            <p class="m-0 mono-font dark">Notes</p>
             <div class="input-group">
               <textarea class="form-control" aria-label="With textarea"></textarea>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary modal-btn">Sign Up</button>
+            <button type="button" class="btn btn-secondary dark-btn hover-dark mono-font" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary dark-btn hover-dark mono-font">Sign Up</button>
           </div>
         </div>
       </div>
@@ -97,16 +87,16 @@
     <!-- App Headers -->
     <div class="row mt-4" id="header-row">
       <div class="col-2">
-        <p class="text-center m-0 fs-5 header">Apply Date</p>
+        <p class="text-center mt-4 mb-0 fs-5 mono-font dark">Apply Date</p>
       </div>
       <div class="col-4">
-        <p class="text-center m-0 fs-5 header">Company Name</p>
+        <p class="text-center mt-4 mb-0 fs-5 mono-font dark">Company Name</p>
       </div>
       <div class="col-4">
-        <p class="text-center m-0 fs-5 header">Position Title</p>
+        <p class="text-center mt-4 mb-0 fs-5 mono-font dark">Position Title</p>
       </div>
       <div class="col-2">
-        <p class="text-center m-0 fs-5 header">Source</p>
+        <p class="text-center mt-4 mb-0 fs-5 mono-font dark">Source</p>
       </div>
     </div>
     <hr>
