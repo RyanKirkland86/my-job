@@ -43,6 +43,8 @@ module.exports = function(sequelize, DataTypes) {
     });
     
     User.prototype.validPassword = function(password) {
+        // console.log(password);
+        // console.log(this.password);
         return bcrypt.compareSync(password, this.password);
     };
     User.addHook("beforeCreate", function(user) {

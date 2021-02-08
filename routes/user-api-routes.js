@@ -8,8 +8,15 @@ module.exports = function(app) {
   //passport.authenticate middleare with local strategy
   //checks fi user has valid login credentials
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json(req.user);
-  })
+    console.log(req.user.dataValues.id);
+    // res.setHeader("Content-Type", "text/html");
+    // res.redirect("/dashboard/" + req.user.dataValues.id);
+    res.json({
+      message: "Redirect",
+      url: "/dashboard/" + req.user.dataValues.id
+    })
+    // res.send("/dashboard/" + req.user.dataValues.id);
+  });
   
   // GET route for getting all of the users
   app.get("/api/users/", function(req, res) {
