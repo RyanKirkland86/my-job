@@ -21,7 +21,7 @@ module.exports = function(app) {
   // app.get("/dashboard/:id", function(req, res) {
   //  res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
 
-  app.get("/dashboard/:id", async (req, res) => {
+  app.get("/dashboard/:id", (req, res) => {
     db.User.findAll({
       where: { id: req.params.id }
     }).then(function(result) {
@@ -38,6 +38,24 @@ module.exports = function(app) {
       });
     });
   
+
+  app.get("/dashboard/:id/:appid", async (req, res) => {
+    const app = await db.Application.findOne({
+      where: { id: req.params.id }
+    }).catch(err => console.log(err));
+    const note = await db.Note.findAll({
+      where: { ApplicationId: req.params.id }
+    }).catch(err => console.log(err));
+    console.log(app);
+    const data = {
+      date: app.createdAt,
+      company: app.company,
+      role: app.role,
+      noteDate: note.createdAt,
+      noteBody: note.body
+    }
+    res.render("application", data);
+  });
 
   app.get("/dashboard/:id/:appid", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/application.html"));

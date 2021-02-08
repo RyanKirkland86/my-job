@@ -1,0 +1,44 @@
+<!-- Change background color -->
+<style> body {background: #cbbcb1;} </style>
+<div class="container py-5">
+    <!-- Company and role -->
+    <div class="row justify-content-center dark-background mt-5">
+      <div class="col-8 p-3">
+        <h1 class="text-center display-3 light mono-font">{{company}}</h1>
+        <h4 class="text-center light mono-font mt-4">{{role}}</h4>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+      <div class="col-10 p-3 info-section">
+        <a class="edit-btn float-end">Edit</a>
+        <div class="row justify-content-around">
+          <div class="col-10 mb-4 text-center date">Application Date: <span id="app-date">{{date}}</span></div>
+          <div class="col-4">
+            <h6 class="text-center text-decoration-underline">Status</h6>
+            <p class="text-center data-field">No Response</p>
+          </div>
+          <div class="col-4">
+            <h6 class="text-center text-decoration-underline">Source</h6>
+            <p class="text-center data-field">LinkedIn</p>
+          </div>
+          <div class="col-4">
+            <h6 class="text-center text-decoration-underline">Next Step</h6>
+            <p class="text-center data-field">Wait for response</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+      <div class="col-10 p-3 notes-section">
+        <a class="float-end">Edit</a>
+        <h3 class="m-3 p-2">Notes:</h3>
+        <div class="m-3 p-2">
+          {{#each notes}}
+          {{> note-block}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="../js/application.js"></script>
