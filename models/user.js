@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    // These need to stay commented out until ready... they are blocking functionality for now.
+
     User.prototype.validPassword = function(password) {
         return bcrypt.compareSync(password, this.password);
     };
