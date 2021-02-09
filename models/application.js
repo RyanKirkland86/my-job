@@ -34,10 +34,12 @@ module.exports = function(sequelize, DataTypes) {
         recruiterName: {
             type: DataTypes.STRING,
             allowNull: true,
+            default: "N/A"
         },
         recruiterContact: {
             type: DataTypes.STRING,
             allowNull: true,
+            default: "N/A",
             validate: {
                 isEmail: true
             }
