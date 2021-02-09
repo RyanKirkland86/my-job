@@ -1,6 +1,6 @@
 const user = require("./user");
 
-var statusopts = ["Applied - Awaiting Response", "Recruiter Responded", "Interview Scheduled", "Interview Completed", "Offer Made", "Rejection"];
+var statusopts = ["Applied", "Recruiter Responded", "Interview Scheduled", "Interview Completed", "Offer Made", "Rejection"];
 
 module.exports = function(sequelize, DataTypes) {
     var Application = sequelize.define("Application", {
@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
         status: {
             type: DataTypes.STRING,
             allowNull: false,
-            default: "Applied - Awaiting Response",
+            default: "Applied",
             validate: {
                 len: [1],
                 // isIn: [statusopts] // This is causing problems. -JK

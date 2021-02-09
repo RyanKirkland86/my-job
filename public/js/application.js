@@ -1,7 +1,8 @@
 $(document).ready(function () {
     $("#save-edits").on("click", function(event) {
         event.preventDefault();
-        var status = $("#edit-status").val().trim();
+        var status = $('input[name="flexRadioDefault"]:checked').val();
+        console.log(status);
         var source = $("#edit-source").val().trim();
         var company = $("#edit-company").val().trim();
         var role = $("#edit-role").val().trim();
