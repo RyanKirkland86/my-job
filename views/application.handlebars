@@ -67,6 +67,7 @@
 
     <div class="row justify-content-center mt-4">
       <div class="col-10 p-3 light-background rounded-border">
+        <a class="float-end add-btn" data-bs-toggle="modal" data-bs-target="#new-note-form">New Note</a>
         <h3 class="m-3 p-2 mono-font dark">Notes:</h3>
         <div class="m-3 p-2">
           {{#each notes}}
@@ -97,6 +98,29 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary modal-btn" id="note-edits">Save Note Edits</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Create modal for creating a note --}}
+  <div class="modal mt-5" tabindex="-1" id="new-note-form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Note</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Input Fields -->
+        <div class="modal-body">
+          <p class="mb-1">Note Body</p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="new-noteBody">
+          </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary modal-btn" id="add-note">Save Note</button>
         </div>
       </div>
     </div>

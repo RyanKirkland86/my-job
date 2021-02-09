@@ -7,7 +7,10 @@ $(document).ready(function () {
         var jobLink = $("#jobsitelink").val().trim();
         var recruiterName = $("#recruiterName").val().trim();
         var recruiterContact = $("#recruiterEmail").val().trim();
-        var user = window.location.href.slice(-1);
+        var user;
+        if (window.location.href.slice(-2)==="/") {
+            user = window.location.href.slice(-1);
+        } else { user = window.location.href.slice(-2)};
         console.log(user);
 
 
@@ -33,8 +36,9 @@ $(document).ready(function () {
 
     $(document.body).on("click", ".application", function (event) {
         event.preventDefault();
-        const appId = event.target.getAttribute("data-id");
+        var appId = event.target.getAttribute("data-id");
         var user = window.location.href.slice(-1);
+        console.log(appId +", " + user);
         window.location.pathname = (`/dashboard/${user}/${appId}`);
     })
 });

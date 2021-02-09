@@ -46,5 +46,18 @@ $(document).ready(function () {
         });
         location.reload();
     });
+
+    $("#add-note").on("click", function(event) {
+        event.preventDefault();
+        var body = {};
+        body.body = $("#new-noteBody").val().trim();
+        $.ajax("/api/notes/new", {
+            type: "POST",
+            data: body
+        }).then(function(result) {
+            console.log(result);
+        });
+        location.reload();
+    })
     
 });
