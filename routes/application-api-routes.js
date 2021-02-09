@@ -20,6 +20,14 @@ module.exports = function(app) {
         });
     });
 
+    // GET route for getting all applications for a single user
+    app.get("/api/applications/all/:userid", function(req, res) {
+      db.Application.findAll({where: {UserId: req.params.userid}})
+          .then(function(result) {
+          res.json(result);
+      });
+    });
+
     app.put("/api/applications/edit/:id", function(req, res) {
         db.Application.update(
           {company: req.body.company,
