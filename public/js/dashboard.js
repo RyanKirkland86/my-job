@@ -8,7 +8,7 @@ $(document).ready(function () {
         var recruiterName = $("#recruiterName").val().trim();
         var recruiterContact = $("#recruiterEmail").val().trim();
         var user;
-        if (window.location.href.slice(-2)==="/") {
+        if (window.location.href.slice(-2,-1)==="/") {
             user = window.location.href.slice(-1);
         } else { user = window.location.href.slice(-2)};
         console.log(user);

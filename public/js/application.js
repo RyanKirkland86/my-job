@@ -5,7 +5,7 @@ $(document).ready(function () {
         var source = $("#edit-source").val().trim();
         var company = $("#edit-company").val().trim();
         var role = $("#edit-role").val().trim();
-        var appID = window.location.href.slice(-1);
+        var appID = window.location.href.slice(-3,-2);
         // console.log(appID);
 
         // Confirm input fields not empty.
