@@ -62,7 +62,7 @@ module.exports = function(app) {
     res.render("application", {
       title: "My Job | Application",
       app: app,
-      note: note,
+      notes: note,
     });
   });
 };
