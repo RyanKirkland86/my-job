@@ -2,11 +2,11 @@
 
 ## Project Summary:
 
-
+This is a full stack web application that empowers a user to better ogranize their job search. The user can create a unique profile, add job applications, track their status, update with notes, and compare data.
 
 [DeployedSite]()
 
-![IMAGE]()
+![IMAGE](https://github.com/profjjk/my-job/blob/main/public/img/Landing%20Page.jpg)
 <br>
 
 ## Table of Contents:

@@ -41,8 +41,29 @@
         <!-- Input Fields -->
         <div class="modal-body">
           <p class="mb-1 mono-font dark">Status</p>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-status">
+          <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" name="flexRadioDefault" id="status1" value="Applied">
+            <label class="form-check-label" for="status1" value="Applied">Applied</label>
+          </div>
+          <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" name="flexRadioDefault" id="status2" value="Recruiter Responded">
+            <label class="form-check-label" for="status2" value="Recruiter Responded">Recruiter Responded</label>
+          </div>
+          <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" name="flexRadioDefault" id="status3" value="Interview Scheduled">
+            <label class="form-check-label" for="status3" value="Interview Scheduled">Interview Scheduled</label>
+          </div>
+          <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" name="flexRadioDefault" id="status4" value="Interview Completed">
+            <label class="form-check-label" for="status4" value="Interview Completed">Interview Completed</label>
+          </div>
+          <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" name="flexRadioDefault" id="status5" value="Offer Made">
+            <label class="form-check-label" for="status5" value="Offer Made">Offer Made</label>
+          </div>
+          <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" name="flexRadioDefault" id="status6" value="Rejection">
+            <label class="form-check-label" for="status6" value="Rejection">Rejection</label>
           </div>
           <p class="mb-1 mono-font dark">Source (Must be a URL)</p>
           <div class="input-group mb-3">
@@ -67,6 +88,7 @@
 
     <div class="row justify-content-center mt-4">
       <div class="col-10 p-3 light-background rounded-border">
+        <a class="edit-btn float-end imitate-btn" data-bs-toggle="modal" data-bs-target="#new-note-form">Add New Note</a>
         <h3 class="m-3 p-2 mono-font dark text-center">- Notes -</h3>
         <div class="m-3 p-2">
           {{#each notes}}
@@ -102,6 +124,30 @@
         </div>
       </div>
     </div>
-    
   </div>
+
+    {{!-- Create modal for creating a note --}}
+  <div class="modal mt-5" tabindex="-1" id="new-note-form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title mono-font dark">New Note</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Input Fields -->
+        <div class="modal-body">
+          <p class="mb-1 mono-font dark">Note Body</p>
+          <div class="input-group">
+            <textarea class="form-control" style="height:150px;" aria-label="With textarea" id="new-noteBody"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary dark-btn hover-dark" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary dark-btn hover-dark" id="add-note">Save New Note</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <script src="../../js/application.js"></script>

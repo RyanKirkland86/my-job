@@ -1,11 +1,15 @@
 $(document).ready(function () {
     $("#save-edits").on("click", function(event) {
         event.preventDefault();
-        var status = $("#edit-status").val().trim();
+        var status = $('input[name="flexRadioDefault"]:checked').val();
+        console.log(status);
         var source = $("#edit-source").val().trim();
         var company = $("#edit-company").val().trim();
         var role = $("#edit-role").val().trim();
-        var appID = window.location.href.slice(-1);
+        var appID;
+        if (window.location.href.slice(-2,-1) === "/") {
+            appID = window.location.href.slice(-1);
+         } else {appID = window.location.href.slice(-2)};
         // console.log(appID);
 
         // Confirm input fields not empty.
