@@ -64,3 +64,11 @@ body {
   color:#af6b58;
   text-decoration: none;
 }
+
+/* CHART */
+.chart {
+  position: relative;
+  margin: auto;
+  height: 250px;
+  width: 70%;
+}

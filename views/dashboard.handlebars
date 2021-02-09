@@ -26,8 +26,8 @@
 
     <!-- Graph & Tracking Section -->
     <div class="row justify-content-center my-4">
-      <div class="col-9">
-        <canvas id="app-chart"></canvas>
+      <div class="col-9 chart">
+        <canvas id="chart"></canvas>
       </div>
       <div class="col-3 d-flex border" style="height:200px;" id="tracking">
         <p class="text-center align-self-center flex-grow-1">(Tracking Area)</p>
@@ -134,30 +134,45 @@
   <script>
     window.onload = () => {
       
-
       var days = [];
       for (var i = 1; i < 31; i++) {
         days.push(i);
       }
       var applications = [];
       for (var i = 0; i < 30; i++) {
-        var num = Math.floor(Math.random() * 11)
+        var num = Math.floor(Math.random() * 6)
         applications.push(num);
       }
-      
-      const ctx = document.getElementById('app-chart');
-      const applicationChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: days,
-          datasets: [{
-              label: 'Applications',
-              backgroundColor: 'rgb(175, 107, 88)',
-              borderColor: 'rgb(85, 96, 82)',
-              data: applications
+      var data = {
+        labels: days,
+        datasets: [{
+          label: "Applications By Day",
+          backgroundColor: 'rgb(175, 107, 88)',
+          borderWidth: 1,
+          hoverBackgroundColor: 'rgb(85, 96, 82)',
+          data: applications,
+        }]
+      };
+      var options = {
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            stacked: true,
+            gridLines: {
+              display: true,
+              color: 'rgb(85, 96, 82)'
+            }
           }],
-          options: { maintainAspectRatio: false }
+          xAxes: [{
+            gridLines: {
+              display: false
+            }
+          }]
         }
+      }
+      Chart.Bar('chart', {
+        options: options,
+        data: data
       })
     }
   </script>
