@@ -2,6 +2,11 @@ const user = require("./user");
 
 var statusopts = ["Applied", "Recruiter Responded", "Interview Scheduled", "Interview Completed", "Offer Made", "Rejection"];
 
+function validateEmail(value) {
+    var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(value);
+}
+
 module.exports = function(sequelize, DataTypes) {
     var Application = sequelize.define("Application", {
         company: {
@@ -39,9 +44,12 @@ module.exports = function(sequelize, DataTypes) {
         recruiterContact: {
             type: DataTypes.STRING,
             allowNull: true,
-            default: "N/A",
             validate: {
-                isEmail: true
+                customValidator(value) {
+                if (value !== "null" && !validateEmail(value)) {
+                    throw new Error("Must be blank or a valid email address");
+                    }
+                }
             }
         }    
     });
