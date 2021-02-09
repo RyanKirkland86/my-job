@@ -28,7 +28,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Configure handlebars.
-app.engine("handlebars", exphbs({ defaultLayout: "main", handlebars: allowInsecurePrototypeAccess(_handlebars) }));
+var hbs = exphbs.create({
+  defaultLayout: "main", 
+  handlebars: allowInsecurePrototypeAccess(_handlebars),
+  helpers: {
+    formatDate: function(datetime) {
+      var date = datetime.toString();
+      return date.substr(4, 11);
+    }
+  }
+});
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Routes
