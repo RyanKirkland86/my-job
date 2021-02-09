@@ -38,8 +38,9 @@ module.exports = function(app) {
 
     // GET route for getting all applications for a single company for a single user
     app.get("/api/applications/company/:userid", function(req, res) {
+      console.log(req.query);
       db.Application.findAll({where:
-        {company: req.body.company,
+        {company: req.query.company,
         UserId: req.params.userid}
       }).then(function(result) {
           res.json(result);
