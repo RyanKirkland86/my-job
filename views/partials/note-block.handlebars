@@ -1,5 +1,6 @@
 <h6 class="fs-5 mb-1 color">Note ID: {{id}}</h6>
-<h6 class="fs-5 mb-1 text-decoration-underline dark">{{createdAt}}</h6>
+<h6 class="fs-5 mb-1 text-decoration-underline dark">{{formatDate createdAt}}</h6>
 <p class="dark">{{body}}</p>
-<a class="edit-btn float-end imitate-btn" data-bs-toggle="modal" data-bs-target="#edit-note-form">Edit</a>
-<br/><br/>
+<a class="edit-btn float-end imitate-btn" data-bs-toggle="modal" data-bs-target="#edit-note-form" data-id="{{id}}">Edit</a><br>
+<hr>
+<br>

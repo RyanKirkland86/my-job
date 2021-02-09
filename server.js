@@ -8,10 +8,6 @@ var { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-acce
 var passport = require("./config/passport");
 var moment = require("moment");
 
-_handlebars.registerHelper("dateFormat", function (date) {
-  var format = "DD/MM/YYYY";
-  return moment(date).format(format);
-});
 
 // Sets up the Express App
 // =============================================================
@@ -33,8 +29,20 @@ app.use(session({ secret: "myjobsearch", resave: true, saveUninitialized: true})
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Configure handlebars.
-app.engine("handlebars", exphbs({ defaultLayout: "main", handlebars: allowInsecurePrototypeAccess(_handlebars) }));
+
+// Configures Handlebars and helpers.
+// =============================================================
+var hbs = exphbs.create({
+  defaultLayout: "main", 
+  handlebars: allowInsecurePrototypeAccess(_handlebars),
+  helpers: {
+    formatDate: function(datetime) {
+      var date = datetime.toString();
+      return date.substr(4, 11);
+    }
+  }
+});
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Routes
