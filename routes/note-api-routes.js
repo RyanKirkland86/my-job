@@ -22,7 +22,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/notes", function(req, res) {
+  app.post("/api/notes/new", function(req, res) {
     // Create a User with the data available to us in req.body
     db.Note.create(req.body).then(function(result) {
       res.json(result);
