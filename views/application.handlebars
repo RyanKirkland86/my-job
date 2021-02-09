@@ -13,7 +13,7 @@
       <div class="col-10 p-3 light-background rounded-border">
         <a class="edit-btn float-end imitate-btn" id="edit-application" data-bs-toggle="modal" data-bs-target="#edit-form">Edit</a>
         <div class="row justify-content-around">
-          <div class="col-10 mb-4 text-center date dark"><span class="fs-5 bold color">Application Date: </span><span id="app-date">{{formatDate app.createdAt}}</span></div>
+          <div class="col-10 mb-4 text-center fs-5 dark"><span class="bold color">Application Date: </span><span id="app-date">{{formatDate app.createdAt}}</span></div>
           <div class="col-4">
             <h6 class="text-center text-decoration-underline dark fs-5">Status</h6>
             <p class="text-center data-field color">{{app.status}}</p>
@@ -35,31 +35,31 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Current Application</h5>
+          <h5 class="modal-title mono-font dark">Edit Current Application</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <!-- Input Fields -->
         <div class="modal-body">
-          <p class="mb-1">Status</p>
+          <p class="mb-1 mono-font dark">Status</p>
           <div class="input-group mb-3">
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-status">
           </div>
-          <p class="mb-1">Source (Must be a URL)</p>
+          <p class="mb-1 mono-font dark">Source (Must be a URL)</p>
           <div class="input-group mb-3">
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-source">
           </div>
-          <p class="mb-1">Company</p>
+          <p class="mb-1 mono-font dark">Company</p>
           <div class="input-group mb-3">
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-company">
           </div>
-          <p class="mb-1">Role</p>
+          <p class="mb-1 mono-font dark">Role</p>
           <div class="input-group mb-3">
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-role">
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary modal-btn" id="save-edits">Save Edits</button>
+          <button type="button" class="btn btn-secondary dark-btn" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary dark-btn" id="save-edits">Save Edits</button>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
 
     <div class="row justify-content-center mt-4">
       <div class="col-10 p-3 light-background rounded-border">
-        <h3 class="m-3 p-2 mono-font dark">Notes:</h3>
+        <h3 class="m-3 p-2 mono-font dark text-center">- Notes -</h3>
         <div class="m-3 p-2">
           {{#each notes}}
            {{> note-block}}
@@ -81,22 +81,22 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Note</h5>
+          <h5 class="modal-title mono-font dark">Edit Note</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <!-- Input Fields -->
         <div class="modal-body">
-          <p class="mb-1">Note Body</p>
+          <p class="mb-1 mono-font dark">Note Body</p>
           <div class="input-group mb-3">
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-noteBody">
           </div>
-          <p class="mb-1">Note ID (Enter currently attached ID)</p>
+          <p class="mb-1 mono-font dark">Note ID (Enter currently attached ID)</p>
           <div class="input-group mb-3">
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-noteID">
           </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary modal-btn" id="note-edits">Save Note Edits</button>
+          <button type="button" class="btn btn-secondary dark-btn" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary dark-btn" id="note-edits">Save Note Edits</button>
         </div>
       </div>
     </div>
