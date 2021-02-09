@@ -38,7 +38,7 @@ $(document).ready(function () {
         event.preventDefault();
         var appId = event.target.getAttribute("data-id");
         var user;
-        if(window.location.href.slice(-2) === "/"){
+        if(window.location.href.slice(-2,-1) === "/"){
            user = window.location.href.slice(-1);
         } else {user = window.location.href.slice(-2)};
         console.log(appId +", " + user);
