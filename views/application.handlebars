@@ -23,8 +23,8 @@
             <p class="text-center data-field color">{{app.jobsitelink}}</p>
           </div>
           <div class="col-4">
-            <h6 class="text-center text-decoration-underline dark fs-5">Next Step</h6>
-            <p class="text-center data-field color">Wait for response</p>
+            <h6 class="text-center text-decoration-underline dark fs-5">Recruiter</h6>
+            <p class="text-center data-field color">{{app.recruiterName}}</p>
           </div>
         </div>
       </div>
@@ -67,15 +67,15 @@
           </div>
           <p class="mb-1 mono-font dark">Source (Must be a URL)</p>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-source">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{app.jobsitelink}}" id="edit-source">
           </div>
           <p class="mb-1 mono-font dark">Company</p>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-company">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{app.company}}" id="edit-company">
           </div>
           <p class="mb-1 mono-font dark">Role</p>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="edit-role">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{app.role}}" id="edit-role">
           </div>
         </div>
         <div class="modal-footer">
@@ -111,11 +111,11 @@
           <p class="mb-1 mono-font dark">Note ID (Enter currently attached ID)</p>
           <div class="input-group mb-3">
           <input type="text" class="form-control" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default" id="edit-noteID">
+              aria-describedby="inputGroup-sizing-default" value="{{note.id}}" id="edit-noteID">
           </div>
           <p class="mb-1 mono-font dark">Note Body</p>
           <div class="input-group">
-            <textarea class="form-control" style="height:150px;" aria-label="With textarea" id="edit-noteBody"></textarea>
+            <textarea class="form-control" style="height:150px;" aria-label="With textarea" value="{{note.noteBody}}" id="edit-noteBody"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary dark-btn hover-dark" data-bs-dismiss="modal">Close</button>
