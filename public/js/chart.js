@@ -1,14 +1,14 @@
 window.onload = () => {
       
-  var days = [];
-  for (var i = 1; i < 61; i++) {
-    days.push(i);
-  }
-  var applications = [];
-  for (var i = 0; i < 60; i++) {
-    var num = Math.floor(Math.random() * 11)
-    applications.push(num);
-  }
+  // var days = [];
+  // for (var i = 1; i < 61; i++) {
+  //   days.push(i);
+  // }
+  // var applications = [];
+  // for (var i = 0; i < 60; i++) {
+  //   var num = Math.floor(Math.random() * 11)
+  //   applications.push(num);
+  // }
 
   $.get( "/api/applications/", data => {
     console.log(data)
@@ -26,12 +26,9 @@ window.onload = () => {
     var count = 0;
     for (var i = 0; i < data.length; i++) {
       var response = data[i].status;
-      if (response === "Awaiting Response") {
-        continue;
-      } else {
-        count++;
+      if (response !== "Applied") {
+       count++;
       }
-      console.log(response);
     } 
     $('#responses').text(count);
   }
@@ -40,10 +37,9 @@ window.onload = () => {
     var count = 0;
     for (var i = 0; i < data.length; i++) {
       var response = data[i].status;
-      if (response === "Interview") {
+      if (response === "Interview Completed") {
         count++;
       }
-      console.log(response);
     } 
     $('#interviews').text(count);
   }
@@ -51,12 +47,12 @@ window.onload = () => {
   function formatData(data) {
     var tracker = {};
     for (var i = 0; i < data.length; i++) {
-      var rawDate = data[i].createdAt.toString();
-      var formatDate = rawDate.substr(5, 5);
-      if (tracker[formatDate]) {
-        tracker[formatDate] = tracker[formatDate] + 1;
+      var date = dayjs(data[i].createdAt).format('M/D')
+      console.log(date);
+      if (tracker[date]) {
+        tracker[date] = tracker[date] + 1;
       } else {
-        tracker[formatDate] = 1;
+        tracker[date] = 1;
       }
     }
     var chartX = Object.keys(tracker)
