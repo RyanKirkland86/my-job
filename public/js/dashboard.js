@@ -1,14 +1,14 @@
 $(document).ready(function () {
     $("#save-app").on("click", function(event) {
         event.preventDefault();
-        var createDate = new Date($("#apply-date").val().trim()).toLocaleDateString("en-US").split("/");
+        // var createDate = new Date($("#apply-date").val().trim()).toLocaleDateString("en-US").split("/");
         var compName = $("#compName").val().trim();
         var roleName = $("#roleName").val().trim();
         var jobLink = $("#jobsitelink").val().trim();
         var recruiterName = $("#recruiterName").val().trim();
         var recruiterContact = $("#recruiterEmail").val().trim();
         var user;
-        if (window.location.href.slice(-2)==="/") {
+        if (window.location.href.slice(-2, -1)==="/") {
             user = window.location.href.slice(-1);
         } else { user = window.location.href.slice(-2)};
         console.log(user);
@@ -21,7 +21,7 @@ $(document).ready(function () {
             status: "Applied - Awaiting Response",
             recruiterName: recruiterName,
             recruiterContact: recruiterContact,
-            createdAt: createDate,
+            // createdAt: createDate,
             UserId: user
         }
 

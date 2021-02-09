@@ -1,14 +1,51 @@
 window.onload = () => {
       
   var days = [];
-  for (var i = 1; i < 31; i++) {
+  for (var i = 1; i < 61; i++) {
     days.push(i);
   }
   var applications = [];
-  for (var i = 0; i < 30; i++) {
-    var num = Math.floor(Math.random() * 6)
+  for (var i = 0; i < 60; i++) {
+    var num = Math.floor(Math.random() * 11)
     applications.push(num);
   }
+
+  $.get( "/api/applications/", data => {
+    console.log(data)
+    displayApps(data)
+    displayResp(data)
+  });
+
+  function displayApps(data) {
+    $('#apps-num').text(data.length);
+  }
+
+  function displayResp(data) {
+    var count = 0;
+    for (var i = 0; i < data.length; i++) {
+      var response = data[i].status;
+      if (response === "Awaiting Response") {
+        continue;
+      } else {
+        count++;
+      }
+      console.log(response);
+    } 
+    $('#responses').text(count);
+  }
+
+  function displayInt(data) {
+    var count = 0;
+    for (var i = 0; i < data.length; i++) {
+      var response = data[i].status;
+      if (response === "Interview") {
+        count++;
+      }
+      console.log(response);
+    } 
+    $('#interviews').text(count);
+  }
+
   var data = {
     labels: days,
     datasets: [{
