@@ -29,9 +29,19 @@ module.exports = function(app) {
   });
 
     // GET route for getting all applications for a single user
-    app.get("/api/applications/all/:userid", function(req, res) {
+    app.get("/api/applications/user/:userid", function(req, res) {
       db.Application.findAll({where: {UserId: req.params.userid}})
           .then(function(result) {
+          res.json(result);
+      });
+    });
+
+    // GET route for getting all applications for a single company for a single user
+    app.get("/api/applications/company/:userid", function(req, res) {
+      db.Application.findAll({where:
+        {company: req.body.company,
+        UserId: req.params.userid}
+      }).then(function(result) {
           res.json(result);
       });
     });
