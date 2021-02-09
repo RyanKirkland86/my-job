@@ -48,24 +48,26 @@ $(document).ready(function () {
         var inputData = {};
         inputData.company = company;
         $.get(`/api/applications/company/${userID}`, inputData, data => {
-            var appBlock = `
-            <div class="row mt-2 application color-background hover-dark imitate-btn rounded-border" data-id="${data[0].id}">
-            <div class="col-2 py-2" data-id="${data[0].id}">
+            for (var i = 0; i < data.length; i++) {
+                var appBlock = `
+            <div class="row mt-2 application color-background hover-dark imitate-btn rounded-border" data-id="${data[i].id}">
+            <div class="col-2 py-2" data-id="${data[i].id}">
                 <!-- Need to figure out how to format the 'createdAt' date -->
-                <p class="text-center m-0 light" data-id="${data[0].id}">${dayjs(data[0].createdAt).format('MMM DD YYYY')}</p>
+                <p class="text-center m-0 light" data-id="${data[i].id}">${dayjs(data[i].createdAt).format('MMM DD YYYY')}</p>
             </div>
-            <div class="col-4 py-2" data-id="${data[0].id}">
-                <p class="text-center m-0 light" data-id="${data[0].id}">${data[0].company}</p>
+            <div class="col-4 py-2" data-id="${data[i].id}">
+                <p class="text-center m-0 light" data-id="${data[i].id}">${data[i].company}</p>
             </div>
-            <div class="col-4 py-2" data-id="${data[0].id}">
-                <p class="text-center m-0 light" data-id="${data[0].id}">${data[0].role}</p>
+            <div class="col-4 py-2" data-id="${data[i].id}">
+                <p class="text-center m-0 light" data-id="${data[i].id}">${data[i].role}</p>
             </div>
-            <div class="col-2 py-2" data-id="${data[0].id}">
+            <div class="col-2 py-2" data-id="${data[i].id}">
                 <!-- Need a 'source' column on the application table -->
-                <p class="text-center m-0 light" data-id="${data[0].id}">${data[0].jobsitelink}</p>
+                <p class="text-center m-0 light" data-id="${data[i].id}">${data[i].jobsitelink}</p>
             </div>
             </div>`
             $('#applications').append(appBlock)
+            }
         })
     })
 });
