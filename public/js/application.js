@@ -50,7 +50,12 @@ $(document).ready(function () {
     $("#add-note").on("click", function(event) {
         event.preventDefault();
         var body = {};
+        var appid;
+        if(window.location.href.slice(-2,-1) === "/"){
+            appid = window.location.href.slice(-1);
+         } else {appid = window.location.href.slice(-2)};
         body.body = $("#new-noteBody").val().trim();
+        body.ApplicationId = appid;
         $.ajax("/api/notes/new", {
             type: "POST",
             data: body

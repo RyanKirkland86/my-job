@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#save-app").on("click", function(event) {
         event.preventDefault();
-        var createDate = $("#apply-date").val().trim();
+        var createDate = new Date($("#apply-date").val().trim()).toLocaleDateString("en-US").split("/");
         var compName = $("#compName").val().trim();
         var roleName = $("#roleName").val().trim();
         var jobLink = $("#jobsitelink").val().trim();
@@ -37,7 +37,10 @@ $(document).ready(function () {
     $(document.body).on("click", ".application", function (event) {
         event.preventDefault();
         var appId = event.target.getAttribute("data-id");
-        var user = window.location.href.slice(-1);
+        var user;
+        if(window.location.href.slice(-2) === "/"){
+           user = window.location.href.slice(-1);
+        } else {user = window.location.href.slice(-2)};
         console.log(appId +", " + user);
         window.location.pathname = (`/dashboard/${user}/${appId}`);
     })
