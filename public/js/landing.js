@@ -14,13 +14,25 @@ $(document).ready(function () {
     })
 
     function getUser(username, password) {
-        $.ajax(`api/login/${username}/${password}`, {
-            type: "GET",
+        $.ajax(`api/login`, {
+            type: "POST",
+            data: {
+                userName: username,
+                password: password
+            },
+            // success: function(result) {
+            //     document.open();
+            //     document.write(result);
+            //     document.close();
+            // }
         }).then(function(result) {
-            console.log(result[0]);
-            window.location = "/dashboard/" + result[0].id;
+            if(result.message == "Redirect") {
+                window.location.replace(result.url);
+            } 
+            // console.log(result[0]);
+            // window.location = "/dashboard/" + result[0].id;
         });
-    }
+    } 
 
     $("#sign-up-btn").on("click", function(event) {
         event.preventDefault();
@@ -52,9 +64,14 @@ $(document).ready(function () {
         // Post to Users table
         $.ajax("api/newuser", {
             type: "POST",
-            data: newUser
+            data: newUser,
+            error: function(error){
+                console.log(error);
+                location.reload();
+            }
         }).then(function(result) {
             getUser(userName, password);
+
         });
     });
 });

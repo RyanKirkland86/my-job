@@ -69,5 +69,6 @@ body {
 .chart {
   position: relative;
   margin: auto;
-  width: 50%;
+  height: 250px;
+  width: 70%;
 }
