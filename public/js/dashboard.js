@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $("#save-app").on("click", function(event) {
         event.preventDefault();
-        // var createDate = new Date($("#apply-date").val().trim()).toLocaleDateString("en-US").split("/");
         var compName = $("#compName").val().trim();
         var roleName = $("#roleName").val().trim();
         var jobLink = $("#jobsitelink").val().trim();
