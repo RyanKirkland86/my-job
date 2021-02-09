@@ -10,14 +10,14 @@ $(document).ready(function () {
         if (window.location.href.slice(-2, -1)==="/") {
             user = window.location.href.slice(-1);
         } else { user = window.location.href.slice(-2)};
-        console.log(user);
+        // console.log(user);
 
 
         var newApp = {
             company: compName,
             role: roleName,
             jobsitelink: jobLink,
-            status: "Applied - Awaiting Response",
+            status: "Applied",
             recruiterName: recruiterName,
             recruiterContact: recruiterContact,
             // createdAt: createDate,
@@ -28,7 +28,7 @@ $(document).ready(function () {
             type: "POST",
             data: newApp
         }).then(function(result) {
-            console.log(result);
+            // console.log(result);
             location.reload();
         });     
     });
@@ -40,7 +40,18 @@ $(document).ready(function () {
         if(window.location.href.slice(-2,-1) === "/"){
            user = window.location.href.slice(-1);
         } else {user = window.location.href.slice(-2)};
-        console.log(appId +", " + user);
+        // console.log(appId +", " + user);
         window.location.pathname = (`/dashboard/${user}/${appId}`);
+    })
+
+    $(document.body).on("click", "#btn-search", event => {
+        event.preventDefault();
+        $.get("/api/applications/", data => {
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                var 
+            }
+            $('#applications').append()
+        })
     })
 });

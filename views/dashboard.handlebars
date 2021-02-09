@@ -52,7 +52,7 @@
       <!-- Search -->
       <div class="col-5">
         <form class="d-flex">
-          <input class="form-control mono-font" type="search" placeholder="Search for an application" aria-label="Search">
+          <input class="form-control mono-font" type="search" placeholder="Search by company name" aria-label="Search">
           <button class="btn dark-btn mono-font hover-dark btn-outline-success" type="submit" id="btn-search">Search</button>
         </form>
       </div>
@@ -119,9 +119,12 @@
     <hr>
     
     <!-- Applications -->
+    <div id="applications">
     {{#each apps}}
     {{> app-block}}
     {{/each}}
+    </div>
+   
     
   </div>
 

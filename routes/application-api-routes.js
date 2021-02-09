@@ -13,12 +13,20 @@ module.exports = function(app) {
     });
 
     // GET route for getting single application
-    app.get("/api/applications/:id", function(req, res) {
-        db.Application.findAll({where: {id: req.params.id}})
-            .then(function(result) {
-            res.json(result);
-        });
-    });
+    // app.get("/api/applications/:id", function(req, res) {
+    //     db.Application.findAll({where: {id: req.params.id}})
+    //         .then(function(result) {
+    //         res.json(result);
+    //     });
+    // });
+
+    // GET route for getting single application
+    app.get("/api/applications/", function(req, res) {
+      db.Application.findAll({where: {id: req.body}})
+          .then(function(result) {
+          res.json(result);
+      });
+  });
 
     // GET route for getting all applications for a single user
     app.get("/api/applications/all/:userid", function(req, res) {

@@ -1,14 +1,14 @@
 window.onload = () => {
       
-  var days = [];
-  for (var i = 1; i < 61; i++) {
-    days.push(i);
-  }
-  var applications = [];
-  for (var i = 0; i < 60; i++) {
-    var num = Math.floor(Math.random() * 11)
-    applications.push(num);
-  }
+  // var days = [];
+  // for (var i = 1; i < 61; i++) {
+  //   days.push(i);
+  // }
+  // var applications = [];
+  // for (var i = 0; i < 60; i++) {
+  //   var num = Math.floor(Math.random() * 11)
+  //   applications.push(num);
+  // }
 
   $.get( "/api/applications/", data => {
     console.log(data)
@@ -26,12 +26,9 @@ window.onload = () => {
     var count = 0;
     for (var i = 0; i < data.length; i++) {
       var response = data[i].status;
-      if (response === "Awaiting Response") {
-        continue;
-      } else {
-        count++;
+      if (response !== "Applied") {
+       count++;
       }
-      console.log(response);
     } 
     $('#responses').text(count);
   }
@@ -40,10 +37,9 @@ window.onload = () => {
     var count = 0;
     for (var i = 0; i < data.length; i++) {
       var response = data[i].status;
-      if (response === "Interview") {
+      if (response === "Interview Completed") {
         count++;
       }
-      console.log(response);
     } 
     $('#interviews').text(count);
   }
