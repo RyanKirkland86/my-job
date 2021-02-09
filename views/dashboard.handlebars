@@ -3,7 +3,7 @@
     <!-- Welcome Section -->
     <div class="row justify-content-center mt-4">
       <div class="col-6">
-        <h1 class="display-5 mono-font dark ms-5">Welcome, <span id="firstName">{{firstname}}</span>!</h1>
+        <h1 class="display-5 mono-font dark ms-5">Welcome, <span id="firstName">{{user.firstName}}</span>!</h1>
       </div>
       <div class="col-6">
         <p class="text-center fancy-font dark mb-1 mt-2">"If opportunity doesn't knock, then build a door."</p>
@@ -126,7 +126,7 @@
     <hr>
     
     <!-- Applications -->
-    {{#each applications}}
+    {{#each apps}}
     {{> app-block}}
     {{/each}}
     

@@ -64,6 +64,16 @@ body {
   color:#af6b58;
   text-decoration: none;
 }
+.login-btn {
+  background: #af6b58;
+  color: #f2efea;
+  border: none;
+  height: 4em;
+  border-radius: 10px;
+}
+.login-btn:hover {
+  background: #556052;
+}
 
 /* CHART */
 .chart {

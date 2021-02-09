@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/profjjk/logger-hunt#readme",
   "dependencies": {
-    "bcrypt": "^5.0.0",
     "@handlebars/allow-prototype-access": "^1.0.3",
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "bootstrap-icons": "^1.3.0",
     "chart.js": "^2.9.4",

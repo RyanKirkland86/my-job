@@ -1,0 +1,102 @@
+<div class="container-fluid">
+  <div class="row justify-content-center my-5">
+    <div class="col-6 my-5">
+      <img class="img-fluid mx-auto d-block" src="../img/my-job.png" alt="Job Search Logo" />
+      <h5 class="text-center display-6 my-5 mono-font dark">Organize your job search.</h5>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5">
+    <div class="col-2">
+      <button id="login-btn-main" type="button" class="btn btn-primary login-btn w-75 mono-font fs-2 p-1" data-bs-toggle="modal"
+        data-bs-target="#login-form">
+        Login
+      </button>
+    </div>
+    <div class="col-2">
+      <button id="signup-btn-main" type="button" class="btn btn-primary login-btn w-75 mono-font fs-2 p-1 float-end" data-bs-toggle="modal"
+        data-bs-target="#signup-form">
+        Sign Up
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Login Form -->
+<div class="modal mt-5" tabindex="-1" id="login-form">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Log into your job search dashboard</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Input Fields -->
+      <div class="modal-body">
+        <p class="mb-1">Username</p>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" id="login-username">
+        </div>
+        <p class="mb-1">Password</p>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" id="login-password">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary modal-btn" id="login-btn">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sign Up Form -->
+<div class="modal mt-5" tabindex="-1" id="signup-form">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sign up to begin!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Input Fields -->
+      <div class="modal-body">
+        <p class="mb-1">Username</p>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" id="signup-username">
+        </div>
+        <p class="mb-1">First Name</p>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" id="signup-firstname">
+        </div>
+        <p class="mb-1">Last Name</p>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" id="signup-lastname">
+        </div>
+        <p class="mb-1">Email</p>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" id="signup-email">
+        </div>
+        <p class="mb-1">Password</p>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" id="signup-password">
+        </div>
+        <p class="mb-1">Confirm Password</p>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" id="signup-passconfirm">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary modal-btn" id="sign-up-btn">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="../js/landing.js"></script>

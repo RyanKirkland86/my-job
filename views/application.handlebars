@@ -5,22 +5,22 @@
     <!-- Company and role -->
     <div class="row justify-content-center mt-5">
       <div class="col-8 p-3 green-background rounded-border">
-        <h1 class="text-center display-3 light mono-font">{{company}}</h1>
-        <h4 class="text-center light mono-font mt-4">{{role}}</h4>
+        <h1 class="text-center display-3 light mono-font">{{app.company}}</h1>
+        <h4 class="text-center light mono-font mt-4">{{app.role}}</h4>
       </div>
     </div>
     <div class="row justify-content-center mt-4">
       <div class="col-10 p-3 light-background rounded-border">
         <a class="edit-btn float-end imitate-btn" id="edit-application" data-bs-toggle="modal" data-bs-target="#edit-form">Edit</a>
         <div class="row justify-content-around">
-          <div class="col-10 mb-4 text-center date dark"><span class="fs-5 bold color">Application Date: </span><span id="app-date">{{date}}</span></div>
+          <div class="col-10 mb-4 text-center date dark"><span class="fs-5 bold color">Application Date: </span><span id="app-date">{{app.date}}</span></div>
           <div class="col-4">
             <h6 class="text-center text-decoration-underline dark fs-5">Status</h6>
-            <p class="text-center data-field color">{{status}}</p>
+            <p class="text-center data-field color">{{app.status}}</p>
           </div>
           <div class="col-4">
             <h6 class="text-center text-decoration-underline dark fs-5">Source</h6>
-            <p class="text-center data-field color">{{jobsitelink}}</p>
+            <p class="text-center data-field color">{{app.jobsitelink}}</p>
           </div>
           <div class="col-4">
             <h6 class="text-center text-decoration-underline dark fs-5">Next Step</h6>
@@ -69,7 +69,7 @@
       <div class="col-10 p-3 light-background rounded-border">
         <h3 class="m-3 p-2 mono-font dark">Notes:</h3>
         <div class="m-3 p-2">
-          {{#each notes}}
+          {{#each note}}
            {{> note-block}}
           {{/each}}
         </div>
