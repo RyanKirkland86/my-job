@@ -41,7 +41,16 @@ $(document).ready(function () {
            user = window.location.href.slice(-1);
         } else {user = window.location.href.slice(-2)};
         window.location.pathname = (`/dashboard/${user}/${appId}`);
-    })
+    });
+
+    $(document.body).on("click", "#refresh", function (event) {
+        event.preventDefault();
+        var user;
+        if(window.location.href.slice(-2,-1) === "/"){
+           user = window.location.href.slice(-1);
+        } else {user = window.location.href.slice(-2)};
+        window.location.pathname = (`/dashboard/${user}`);
+    });
 
     $(document.body).on("click", "#btn-search", event => {
         event.preventDefault();
