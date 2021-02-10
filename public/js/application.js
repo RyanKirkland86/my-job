@@ -30,9 +30,8 @@ $(document).ready(function () {
             data: appEdits
         }).then(function(result) {
             console.log(result);
-            
+            location.reload();  
         });
-        location.reload();
     });
 
     $("#note-edits").on("click", function(event) {
@@ -47,8 +46,8 @@ $(document).ready(function () {
             data: body
         }).then(function(result) {
             console.log(result);
+            location.reload();
         });
-        location.reload();
     });
 
     $("#add-note").on("click", function(event) {
@@ -65,8 +64,7 @@ $(document).ready(function () {
             data: body
         }).then(function(result) {
             console.log(result);
+            location.reload();
         });
-        location.reload();
     })
-    
 });
