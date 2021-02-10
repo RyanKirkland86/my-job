@@ -7,9 +7,7 @@ $(document).ready(function () {
         var company = $("#edit-company").val().trim();
         var role = $("#edit-role").val().trim();
         var appID;
-        if (window.location.href.slice(-2,-1) === "/") {
-            appID = window.location.href.slice(-1);
-         } else {appID = window.location.href.slice(-2)};
+        appID = window.location.href.split("/").slice(-1)[0];
         // console.log(appID);
 
         // Confirm input fields not empty.
@@ -55,9 +53,7 @@ $(document).ready(function () {
         event.preventDefault();
         var body = {};
         var appid;
-        if(window.location.href.slice(-2,-1) === "/"){
-            appid = window.location.href.slice(-1);
-         } else {appid = window.location.href.slice(-2)};
+        appid = window.location.href.split("/").slice(-1)[0];
         body.body = $("#new-noteBody").val().trim();
         body.ApplicationId = appid;
         $.ajax("/api/notes/new", {
@@ -65,8 +61,19 @@ $(document).ready(function () {
             data: body
         }).then(function(result) {
             console.log(result);
+            location.reload();
         });
         location.reload();
-    })
+    });
+    
+
+    $("#back-btn").on("click", function(event) {
+        event.preventDefault();
+        var user;
+        user = window.location.href.split("/").slice(-2)[0];
+        var user2 = window.location.href.split("/")
+        console.log(user2);
+        window.location.pathname = (`/dashboard/${user}`);
+    });
     
 });

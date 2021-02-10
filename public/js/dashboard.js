@@ -11,9 +11,7 @@ $(document).ready(function () {
             recruiterContact = "n@a.com";
         } else { recruiterContact = $("#recruiterEmail").val().trim()};
         var user;
-        if (window.location.href.slice(-2, -1)==="/") {
-            user = window.location.href.slice(-1);
-        } else { user = window.location.href.slice(-2)};
+        user = window.location.href.split("/").slice(-1)[0];
 
         var newApp = {
             company: compName,
@@ -38,18 +36,14 @@ $(document).ready(function () {
         event.preventDefault();
         var appId = event.target.getAttribute("data-id");
         var user;
-        if(window.location.href.slice(-2,-1) === "/"){
-           user = window.location.href.slice(-1);
-        } else {user = window.location.href.slice(-2)};
+        user = window.location.href.split("/").slice(-1)[0];
         window.location.pathname = (`/dashboard/${user}/${appId}`);
     });
 
     $(document.body).on("click", "#refresh", function (event) {
         event.preventDefault();
         var user;
-        if(window.location.href.slice(-2,-1) === "/"){
-           user = window.location.href.slice(-1);
-        } else {user = window.location.href.slice(-2)};
+        user = window.location.href.split("/").slice(-1)[0];
         window.location.pathname = (`/dashboard/${user}`);
     });
 
@@ -82,11 +76,6 @@ $(document).ready(function () {
                 </div>`
                 $('#applications').append(appBlock)
             }
-        })
-    })
-
-    // $(document.body).on("click", "#refresh", event => {
-    //     event.preventDefault();
-    //     location.reload();
-    // });
+        });
+    });
 });
