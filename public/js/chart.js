@@ -1,15 +1,5 @@
 window.onload = () => {
       
-  // var days = [];
-  // for (var i = 1; i < 61; i++) {
-  //   days.push(i);
-  // }
-  // var applications = [];
-  // for (var i = 0; i < 60; i++) {
-  //   var num = Math.floor(Math.random() * 11)
-  //   applications.push(num);
-  // }
-
   $.get( "/api/applications/", data => {
     console.log(data)
     displayApps(data)
@@ -92,9 +82,4 @@ window.onload = () => {
       data: data
     })
   }
-
-  
-
-
-  
 }
