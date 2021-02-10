@@ -1,6 +1,11 @@
 window.onload = () => {
 
-  $.get( "/api/applications/", data => {
+  var user;
+  if (window.location.href.slice(-2, -1)==="/") {
+      user = window.location.href.slice(-1);
+  } else { user = window.location.href.slice(-2)};
+
+  $.get( `/api/applications/user/${user}`, data => {
     console.log(data)
     displayApps(data)
     displayResp(data)
