@@ -1,6 +1,5 @@
 window.onload = () => {
-  
-  // Get data and execute functions.
+
   $.get( "/api/applications/", data => {
     console.log(data)
     displayApps(data)
@@ -43,6 +42,7 @@ window.onload = () => {
     var tracker = {};
     for (var i = 0; i < data.length; i++) {
       var date = dayjs(data[i].createdAt).format('M/D')
+      console.log(date);
       if (tracker[date]) {
         tracker[date] = tracker[date] + 1;
       } else {
@@ -85,4 +85,9 @@ window.onload = () => {
       data: data
     })
   }
+
+  
+
+
+  
 }
