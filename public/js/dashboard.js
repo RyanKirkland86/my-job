@@ -5,13 +5,16 @@ $(document).ready(function () {
         var roleName = $("#roleName").val().trim();
         var jobLink = $("#jobsitelink").val().trim();
         var recruiterName = $("#recruiterName").val().trim();
-        var recruiterContact = $("#recruiterEmail").val().trim();
+        var recruiterContact;
+        if($("#recruiterEmail").val().trim().length === 0){
+            recruiterContact = "n@a.com";
+        } else { recruiterContact = $("#recruiterEmail").val().trim()};
         var user;
         if (window.location.href.slice(-2, -1)==="/") {
             user = window.location.href.slice(-1);
         } else { user = window.location.href.slice(-2)};
 
-
+        console.log(recruiterContact);
         var newApp = {
             company: compName,
             role: roleName,
@@ -38,7 +41,16 @@ $(document).ready(function () {
            user = window.location.href.slice(-1);
         } else {user = window.location.href.slice(-2)};
         window.location.pathname = (`/dashboard/${user}/${appId}`);
-    })
+    });
+
+    $(document.body).on("click", "#refresh", function (event) {
+        event.preventDefault();
+        var user;
+        if(window.location.href.slice(-2,-1) === "/"){
+           user = window.location.href.slice(-1);
+        } else {user = window.location.href.slice(-2)};
+        window.location.pathname = (`/dashboard/${user}`);
+    });
 
     $(document.body).on("click", "#btn-search", event => {
         event.preventDefault();
