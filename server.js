@@ -6,6 +6,7 @@ var exphbs = require('express-handlebars');
 var _handlebars = require('handlebars');
 var { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 var passport = require("./config/passport");
+var moment = require("moment");
 
 
 // Sets up the Express App
