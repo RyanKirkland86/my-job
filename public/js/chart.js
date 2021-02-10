@@ -1,14 +1,4 @@
 window.onload = () => {
-      
-  // var days = [];
-  // for (var i = 1; i < 61; i++) {
-  //   days.push(i);
-  // }
-  // var applications = [];
-  // for (var i = 0; i < 60; i++) {
-  //   var num = Math.floor(Math.random() * 11)
-  //   applications.push(num);
-  // }
 
   $.get( "/api/applications/", data => {
     console.log(data)
@@ -18,10 +8,12 @@ window.onload = () => {
     formatData(data)
   });
 
+  // Display number of applications.
   function displayApps(data) {
     $('#apps-num').text(data.length);
   }
 
+  // Display number of responses.
   function displayResp(data) {
     var count = 0;
     for (var i = 0; i < data.length; i++) {
@@ -33,6 +25,7 @@ window.onload = () => {
     $('#responses').text(count);
   }
 
+  // Display number of interviews.
   function displayInt(data) {
     var count = 0;
     for (var i = 0; i < data.length; i++) {
@@ -44,6 +37,7 @@ window.onload = () => {
     $('#interviews').text(count);
   }
 
+  // Get data lists for X and Y axis of chart and render graph.
   function formatData(data) {
     var tracker = {};
     for (var i = 0; i < data.length; i++) {
@@ -59,7 +53,6 @@ window.onload = () => {
     var chartY = chartX.map(function(keys) {
       return tracker[keys];
     })
-
     var data = {
       labels: chartX,
       datasets: [{

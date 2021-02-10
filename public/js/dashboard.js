@@ -85,8 +85,8 @@ $(document).ready(function () {
         })
     })
 
-    $(document.body).on("click", "#refresh", event => {
-        event.preventDefault();
-        location.reload();
-    });
+    // $(document.body).on("click", "#refresh", event => {
+    //     event.preventDefault();
+    //     location.reload();
+    // });
 });
