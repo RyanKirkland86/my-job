@@ -8,16 +8,7 @@ const user = require("../models/user");
 
 module.exports = function(app) {
 
-  // app.get("/", function(req, res) {
-  //   // If the user already has an account send them to the dashboard page
-  //   if (req.user) {
-  //     console.log(req.user)
-  //     // res.redirect("/dashboard/:id");
-  //     res.redirect("/dashboard/" + req.user.id)
-  //   }
-  //   res.sendFile(path.join(__dirname, "../public/html/landing.html"));
-  // });
-
+  // Render login page or redirect to Dashboard.
   app.get("/", (req, res) => {
     if (req.user) {
       console.log(req.user)
@@ -29,6 +20,7 @@ module.exports = function(app) {
     })
   })
 
+  // Render user dashboard page.
   app.get("/dashboard/:id", isAuthenticated, async (req, res) => {
     const user = await db.User.findOne({
       where: { id: req.params.id }
@@ -43,6 +35,7 @@ module.exports = function(app) {
     });
   });
 
+  // Render Application info page.
   app.get("/dashboard/:id/:appid", isAuthenticated, async (req, res) => {
     const app = await db.Application.findOne({
       where: { id: req.params.appid }
@@ -50,15 +43,6 @@ module.exports = function(app) {
     const note = await db.Note.findAll({
       where: { ApplicationId: req.params.appid }
     }).catch(err => console.log(err));
-    // const data = {
-    //   date: app.createdAt,
-    //   company: app.company,
-    //   role: app.role,
-    //   status: app.status,
-    //   jobsitelink: app.jobsitelink,
-    //   notes: note
-    // }
-    // console.log(data.notes);
     res.render("application", {
       title: "My Job | Application",
       app: app,

@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <!-- Graph & Tracking Section -->
+    <!-- Graph Section -->
     <div class="row justify-content-center my-4">
       <div class="col-9 chart">
         <canvas id="chart"></canvas>
@@ -33,7 +33,7 @@
 
     <!-- Search & Filter Section -->
     <div class="row justify-content-center mt-5">
-      <!-- Filter -->
+      <!-- All Applications Button -->
       <div class="col-7 d-flex">
         <button type="button" id="refresh" class="btn btn-secondary dark-btn hover-dark mono-font me-auto">
           Show All Applications
@@ -117,10 +117,7 @@
     {{#each apps}}
     {{> app-block}}
     {{/each}}
-
-    </div>
-   
-    
+    </div> 
   </div>
 
   <script src="../js/dashboard.js"></script>
