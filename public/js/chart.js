@@ -47,7 +47,7 @@ window.onload = () => {
     var tracker = {};
     for (var i = 0; i < data.length; i++) {
       var date = dayjs(data[i].createdAt).format('M/D')
-      console.log(date);
+      // console.log(date);
       if (tracker[date]) {
         tracker[date] = tracker[date] + 1;
       } else {
