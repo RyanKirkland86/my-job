@@ -10,8 +10,8 @@ $(document).ready(function () {
         if($("#recruiterEmail").val().trim().length === 0){
             recruiterContact = "n@a.com";
         } else { recruiterContact = $("#recruiterEmail").val().trim()};
-        var user;
-        user = window.location.href.split("/").slice(-1)[0];
+        var user = window.location.href.split("/").slice(-1)[0];
+        var noteBody = $("#noteBody").val().trim();
 
         var newApp = {
             company: compName,
@@ -20,7 +20,8 @@ $(document).ready(function () {
             status: "Applied",
             recruiterName: recruiterName,
             recruiterContact: recruiterContact,
-            UserId: user
+            UserId: user,
+            noteBody: noteBody
         }
 
         $.ajax("/api/newapp", {
