@@ -8,7 +8,6 @@ $(document).ready(function () {
         var role = $("#edit-role").val().trim();
         var appID;
         appID = window.location.href.split("/").slice(-1)[0];
-        // console.log(appID);
 
         // Confirm input fields not empty.
         if (!status || !source || !company || !role) {
@@ -28,9 +27,8 @@ $(document).ready(function () {
             data: appEdits
         }).then(function(result) {
             console.log(result);
-            
-        });
-        location.reload();
+            location.reload();
+        });   
     });
 
     $("#note-edits").on("click", function(event) {
@@ -45,8 +43,8 @@ $(document).ready(function () {
             data: body
         }).then(function(result) {
             console.log(result);
-        });
-        location.reload();
+            location.reload();
+        });   
     });
 
     $("#add-note").on("click", function(event) {
@@ -62,8 +60,7 @@ $(document).ready(function () {
         }).then(function(result) {
             console.log(result);
             location.reload();
-        });
-        location.reload();
+        });   
     });
     
 
@@ -75,5 +72,4 @@ $(document).ready(function () {
         console.log(user2);
         window.location.pathname = (`/dashboard/${user}`);
     });
-    
 });
