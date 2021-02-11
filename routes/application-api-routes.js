@@ -26,7 +26,7 @@ module.exports = function(app) {
           .then(function(result) {
           res.json(result);
       });
-  });
+    });
 
     // GET route for getting all applications for a single user
     app.get("/api/applications/user/:userid", function(req, res) {
@@ -61,9 +61,16 @@ module.exports = function(app) {
     });
 
     app.post("/api/newapp", function(req, res) {
+      var noteBody = req.body.noteBody;
         // Create a User with the data available to us in req.body
         db.Application.create(req.body).then(function(result) {
           res.json(result);
+          db.Note.create({
+            body: noteBody,
+            ApplicationId: result.id
+          }).then(function(result) {
+            res.json(result);
+          });
         });
     });
     

@@ -6,8 +6,7 @@ $(document).ready(function () {
         var source = $("#edit-source").val().trim();
         var company = $("#edit-company").val().trim();
         var role = $("#edit-role").val().trim();
-        var appID;
-        appID = window.location.href.split("/").slice(-1)[0];
+        var appID = window.location.href.split("/").slice(-1)[0];
 
         // Confirm input fields not empty.
         if (!status || !source || !company || !role) {
