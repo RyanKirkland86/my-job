@@ -75,6 +75,20 @@ app.post("/api/login", passport.authenticate("local"), function(req, res) {
         url: "/dashboard/" + req.user.dataValues.id
     })
 });
+=======
+Here we create a custom Handlebars helper to extract a small section from a long date string.
+```
+var hbs = exphbs.create({
+  defaultLayout: "main", 
+  helpers: {
+    formatDate: function(datetime) {
+      var date = datetime.toString();
+      return date.substr(4, 11);
+    }
+  }
+});
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 ```
 
 
@@ -82,7 +96,7 @@ app.post("/api/login", passport.authenticate("local"), function(req, res) {
 
 - Jordan Kelly
     - [GitHub](https://github.com/profjjk)
-    - [LinkedIn]()
+    - [LinkedIn](https://www.linkedin.com/in/the-real-jordan-kelly/)
 - Shaun Limbeek
     - [GitHub](https://github.com/slimbeek6)
     - [LinkedIn]()
@@ -97,4 +111,6 @@ This Project is licensed under the MIT License.
 
 
 ## Acknowledgements:
+A special thanks to our instructors Jerome, Mahi, Manuel, and Kerwin for all of your help and support. You guys are the best!
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
