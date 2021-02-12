@@ -82,3 +82,5 @@ This Project is licensed under the MIT License.
 
 ## Acknowledgements:
 A special thanks to our instructors Jerome, Mahi, Manuel, and Kerwin for all of your help and support. You guys are the best!
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
