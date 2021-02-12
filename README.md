@@ -11,12 +11,12 @@ This is a full stack web application that empowers a user to better ogranize the
 
 ## Table of Contents:
 
-* [Technologies Used](#Technologies-used:)
-* [Installation](#Installation:)
-* [Process](#Process:)
-* [Authors](#Authors:)
-* [License](#License:)
-* [Acknowledgements](#Acknowledgements:)
+* [Technologies Used](#technologies-used:)
+* [Installation](#installation:)
+* [Process](#process:)
+* [Authors](#authors:)
+* [License](#license:)
+* [Acknowledgements](#acknowledgements:)
 
 ## Technologies Used:
 
@@ -35,7 +35,6 @@ This is a full stack web application that empowers a user to better ogranize the
 - [Day.js](https://day.js.org/)
 - [express-session](https://www.npmjs.com/package/express-session)
 - [express-handlebars](https://www.npmjs.com/package/express-handlebars)
-- [Moment.js](https://momentjs.com/)
 - [mysql2](https://www.npmjs.com/package/mysql2)
 - [Passport.js](passport.js)
 - [passport-local](http://www.passportjs.org/packages/passport-local/)
@@ -46,6 +45,37 @@ This is a full stack web application that empowers a user to better ogranize the
 
 
 ## Process:
+
+This project was a great learning experience in client/server interraction using session based authentication. In the following code snippet when the user clicks the login button on the client side, the getUser function is executed which sends an ajax call to the server.:
+
+```javascript
+function getUser(username, password) {
+    $.ajax(`api/login`, {
+        type: "POST",
+        data: {
+            userName: username,
+            password: password
+        },
+    }).then(function(result) {
+        if(result.message == "Redirect") {
+            window.location.replace(result.url);
+        }
+    });
+}
+```
+
+The server responds with a post request to our database, which uses Passport.js to check if the user is authenticated and then responds with the redirect to the user’s dashboard page:
+
+```javascript
+app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    console.log(req.user.dataValues.id);
+    
+    res.json({
+        message: "Redirect",
+        url: "/dashboard/" + req.user.dataValues.id
+    })
+});
+=======
 Here we create a custom Handlebars helper to extract a small section from a long date string.
 ```
 var hbs = exphbs.create({
