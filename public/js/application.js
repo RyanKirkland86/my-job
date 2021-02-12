@@ -32,16 +32,16 @@ $(document).ready(function () {
 
     $("#note-edits").on("click", function(event) {
         event.preventDefault();
-        var noteID = $("#edit-noteID").val().trim();
+        var noteID = $("#note-edits").data("noteid");
         var body = {};
         body.body = $("#edit-noteBody").val().trim();
-        console.log(noteID);
-        console.log(body);
+        // console.log(noteID);
+        // console.log(body);
         $.ajax(`/api/notes/edit/${noteID}`, {
             type: "PUT",
             data: body
         }).then(function(result) {
-            console.log(result);
+            // console.log(result);
             location.reload();
         });   
     });
@@ -70,5 +70,10 @@ $(document).ready(function () {
         var user2 = window.location.href.split("/")
         console.log(user2);
         window.location.pathname = (`/dashboard/${user}`);
+    });
+
+    $(".note-edit-modal-btn").on("click", function(event) {
+        event.preventDefault();
+        $("#note-edits").data("noteid", event.target.id);
     });
 });

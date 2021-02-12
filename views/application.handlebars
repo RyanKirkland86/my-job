@@ -113,18 +113,13 @@
         </div>
         <!-- Input Fields -->
         <div class="modal-body">
-          <p class="mb-1 mono-font dark">Note ID (Enter currently attached ID)</p>
-          <div class="input-group mb-3">
-          <input type="text" class="form-control" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default" value="{{notes.id}}" id="edit-noteID">
-          </div>
           <p class="mb-1 mono-font dark">Note Body</p>
           <div class="input-group">
             <textarea class="form-control" style="height:150px;" aria-label="With textarea" value="{{notes.body}}" id="edit-noteBody"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary dark-btn hover-dark" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-secondary dark-btn hover-dark" id="note-edits">Save Note Edits</button>
+            <button type="button" class="btn btn-secondary dark-btn hover-dark" id="note-edits" data-noteid="0">Save Note Edits</button>
           </div>
         </div>
       </div>
