@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-This is a full stack web application that empowers a user to better ogranize their job search. The user can create a unique profile, add job applications, track their status, update with notes, and compare data.
+This is a full stack web application that empowers a user to better organize their job search. The user can create a unique profile, add job applications, track their status, update with notes, and compare data.
 
 [DeployedSite](https://fathomless-atoll-85765.herokuapp.com/)
 
@@ -30,7 +30,7 @@ This is a full stack web application that empowers a user to better ogranize the
 - [Node.js](https://nodejs.org/en/)
 - [Express.js](https://expressjs.com/)
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs)
-- [Chart.js]()
+- [Chart.js](https://www.chartjs.org/)
 - [Day.js](https://day.js.org/)
 - [express-session](https://www.npmjs.com/package/express-session)
 - [express-handlebars](https://www.npmjs.com/package/express-handlebars)
@@ -42,7 +42,7 @@ This is a full stack web application that empowers a user to better ogranize the
 
 ## Process
 
-This project was a great learning experience in client/server interraction using session based authentication. In the following code snippet when the user clicks the login button on the client side, the getUser function is executed which sends an ajax call to the server.:
+This project was a great learning experience in client/server interaction using session based authentication. In the following code snippet when the user clicks the login button on the client side, the getUser function is executed which sends an ajax call to the server:
 
 ```javascript
 function getUser(username, password) {
@@ -88,6 +88,39 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 ```
 
+=======
+In order to ensure that the correct applications are tied to the correct users and notes are tied to specific applications, we set Applications as belonging to our User models, while setting Notes as belonging to Applications, while allowing Applications to have many Notes.
+
+```javascript
+Application.associate = function(models) {
+    Application.hasMany(models.Note, {
+        onDelete: "cascade"
+    });
+};
+        
+Application.associate = function(models) {
+    Application.belongsTo(models.User, {
+        foreignKey : {
+            allowNull: false
+        }
+    });
+};
+```
+
+This allowed us to use highly descriptive RESTful routes in our routing, and even in places utilize our routes as inputs to our route calls.
+
+```javascript
+app.put("/api/notes/edit/:id", function(req, res) {
+    db.Note.update(
+      {body: req.body.body},
+      {where: {id: req.params.id}
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+```
+
+<hr>
 
 ## Authors
 
@@ -96,7 +129,7 @@ app.set("view engine", "handlebars");
     - [LinkedIn](https://www.linkedin.com/in/the-real-jordan-kelly/)
 - Shaun Limbeek
     - [GitHub](https://github.com/slimbeek6)
-    - [LinkedIn]()
+    - [LinkedIn](https://www.linkedin.com/in/shaun-limbeek/)
 - Ryan Kirkland
     - [GitHub](https://github.com/RyanKirkland86)
     - [LinkedIn](https://www.linkedin.com/in/ryan-kirkland-619942200/)
